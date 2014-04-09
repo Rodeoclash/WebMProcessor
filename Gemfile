@@ -9,6 +9,7 @@ gem "default_value_for", "~> 3.0.0"
 gem 'streamio-ffmpeg', :git => 'git@github.com:Rodeoclash/streamio-ffmpeg.git'
 gem 'carrierwave'
 gem 'firebase'
+gem 'active_model_serializers'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
