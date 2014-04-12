@@ -46,6 +46,9 @@ GEM
     ethon (0.7.0)
       ffi (>= 1.3.0)
     ffi (1.9.3)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     firebase (0.2.1)
       json
       typhoeus (>= 0.6.1)
@@ -61,6 +64,7 @@ GEM
     pg (0.17.1)
     polyglot (0.3.4)
     rack (1.5.2)
+    rack-cors (0.2.9)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.4)
@@ -108,8 +112,10 @@ DEPENDENCIES
   active_model_serializers
   carrierwave
   default_value_for (~> 3.0.0)
+  figaro
   firebase
   pg
+  rack-cors
   rails (= 4.0.4)
   sdoc
   streamio-ffmpeg!

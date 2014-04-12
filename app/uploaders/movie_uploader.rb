@@ -53,7 +53,6 @@ class MovieUploader < CarrierWave::Uploader::Base
       movie = FFMPEG::Movie.new(current_path)
 
       movie.transcode("#{Rails.root}/tmp/movie.webm", options) {|progress|
-        puts progress
         firebase_progress.updated(progress)
       }
     ensure

@@ -1,0 +1,62 @@
+<div class="directive directive_form directive_form_encoding_job">
+	<form role="form">
+		
+		<framegroup>
+			<legend>Framing</legend>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+			<bootstrap:form:group for="frame_rate" label="Framerate" help="Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+				<input id="frame_rate" class="form-control" type="number" ng:model="model.frame_rate" name="frame_rate" placeholder="24, 30, 48, 60 etc (min: settings.MIN_FRAME_RATE, max: settings.MAX_FRAME_RATE)" min="settings.MIN_FRAME_RATE" max="settings.MAX_FRAME_RATE" required>
+			</bootstrap:form:group>
+
+			<bootstrap:form:group for="resolution" label="Resolution">
+				<select class="form-control" id="resolution" ng:model="model.resolution" name="resolution" ng:options="resolution.value as resolution.name for resolution in settings.RESOLUTIONS" required>
+					<option value="">-- Please Choose --</option>
+				</select>
+			</bootstrap:form:group>
+		</framegroup>
+
+		<framegroup>
+			<legend>Bitrate</legend>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+			<bootstrap:form:group for="video_bitrate" label="Bitrate">
+				<input id="video_bitrate" class="form-control" type="number" ng:model="model.video_bitrate" name="video_bitrate" placeholder="(min: {{settings.MIN_BIT_RATE}}, max: {{settings.MAX_BIT_RATE}})" min="{{settings.MIN_BIT_RATE}}" max="{{settings.MAX_BIT_RATE}}" required>
+			</bootstrap:form:group>
+
+			<bootstrap:form:group for="video_bitrate_tolerance" label="Bitrate tolerance">
+				<input id="video_bitrate_tolerance" class="form-control" type="number" ng:model="model.video_bitrate_tolerance" name="video_bitrate_tolerance" placeholder="(min: {{settings.MIN_BIT_RATE_TOLERANCE}}, max: {{settings.MAX_BIT_RATE_TOLERANCE}})" min="{{settings.MIN_BIT_RATE_TOLERANCE}}" max="{{settings.MAX_BIT_RATE_TOLERANCE}}" required>
+			</bootstrap:form:group>
+
+			<bootstrap:form:group for="video_min_bitrate" label="Min bitrate">
+				<input id="video_min_bitrate" class="form-control" type="number" ng:model="model.video_min_bitrate" name="video_min_bitrate" placeholder="(min: {{settings.MIN_BIT_RATE}}, max: {{settings.MAX_BIT_RATE}})" min="{{settings.MIN_BIT_RATE}}" max="{{settings.MAX_BIT_RATE}}" required>
+			</bootstrap:form:group>
+
+			<bootstrap:form:group for="video_max_bitrate" label="Max bitrate">
+				<input id="video_max_bitrate" class="form-control" type="number" ng:model="model.video_max_bitrate" name="video_max_bitrate" placeholder="(min: {{settings.MIN_BIT_RATE}}, max: {{settings.MAX_BIT_RATE}})" min="{{settings.MIN_BIT_RATE}}" max="{{settings.MAX_BIT_RATE}}" required>
+			</bootstrap:form:group>
+		</framegroup>
+
+		<framegroup>
+			<legend>Misc</legend>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+			<bootstrap:form:group for="keyframe_interval" label="Bitrate">
+				<input id="keyframe_interval" class="form-control" type="number" ng:model="model.keyframe_interval" name="keyframe_interval" placeholder="(min: {{settings.MIN_KEYFRAME_INTERVAL}}, max: {{settings.MAX_KEYFRAME_INTERVAL}})" min="{{settings.MIN_KEYFRAME_INTERVAL}}" max="{{settings.MAX_KEYFRAME_INTERVAL}}" required>
+			</bootstrap:form:group>
+
+			<bootstrap:form:group for="buffer_size" label="Bitrate tolerance">
+				<input id="buffer_size" class="form-control" type="number" ng:model="model.buffer_size" name="buffer_size" placeholder="(min: {{settings.MIN_BUFFER_SIZE}}, max: {{settings.MAX_BUFFER_SIZE}})" min="{{settings.MIN_BUFFER_SIZE}}" max="{{settings.MAX_BUFFER_SIZE}}" required>
+			</bootstrap:form:group>
+
+			<bootstrap:form:group for="seek_time" label="Start from">
+				<input id="seek_time" class="form-control" type="number" ng:model="model.seek_time" name="seek_time" placeholder="In seconds">
+			</bootstrap:form:group>
+
+			<bootstrap:form:group for="duration" label="Duration">
+				<input id="duration" class="form-control" type="number" ng:model="model.video_min_bitrate" name="video_min_bitrate" placeholder="In seconds" min="{{settings.MIN_DURATION}}" max="{{settings.MAX_DURATION}}" required>
+			</bootstrap:form:group>
+		</framegroup>
+
+	</form>
+</div>

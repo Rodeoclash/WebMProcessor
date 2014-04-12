@@ -1,0 +1,12 @@
+<div class="form-group directive directive_bootstrap_form_group" ng:class="{'has-error': !control.$valid && control.$dirty}">
+	<label class="control-label" for="{{id}}">{{label}}</label>
+	<div>
+		<div ng:transclude></div ng:transclude>
+		<span class="help-block">{{help}}</span>
+		<span class="help-block" ng:show="control.$error.required && control.$dirty">{{label}} is required</span>
+		<span class="help-block" ng:show="control.$error.email && control.$dirty">{{label}} is not a valid email address</span>
+		<span class="help-block" ng:show="control.$error.number && control.$dirty">{{label}} is not a number</span>
+		<span class="help-block" ng:show="control.$error.max && control.$dirty">{{label}} exceeds the maximum value allowed</span>
+		<span class="help-block" ng:show="control.$error.min && control.$dirty">{{label}} is under the minimum value allowed</span>
+	</div>
+</div>

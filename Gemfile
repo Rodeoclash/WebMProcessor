@@ -2,14 +2,14 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
-
-# Use postgresql as the database for Active Record
+gem 'figaro'
 gem 'pg'
 gem "default_value_for", "~> 3.0.0"
 gem 'streamio-ffmpeg', :git => 'git@github.com:Rodeoclash/streamio-ffmpeg.git'
 gem 'carrierwave'
 gem 'firebase'
 gem 'active_model_serializers'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

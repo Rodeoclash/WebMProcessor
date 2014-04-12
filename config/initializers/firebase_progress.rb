@@ -1,11 +1,10 @@
 class FirebaseProgress
 
-	URI = "https://webmprocessor.firebaseio.com".freeze
-	KEY = "XNOZwXBLv3mficZE1IMYog3WUCHBJhhIeLsHHwEy".freeze
+	#ENV['FIREBASE_KEY']
 
 	def initialize(options)
 		@uuid = options[:uuid]
-		@client = Firebase::Client.new(URI)
+		@client = Firebase::Client.new(ENV['FIREBASE_URI'])
 	end
 
 	def started
