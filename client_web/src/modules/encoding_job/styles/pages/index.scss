@@ -1,0 +1,22 @@
+.page_encoding_job_index {
+
+	.save_indicator {
+		position: fixed;
+		right: 20px;
+		bottom: 20px;
+		background: #eee;
+		border: 1px solid #eee;
+		padding: 10px 20px;
+		text-align: center;
+		line-height: 20px;
+		box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.33);
+		border: 1px solid #ccc;
+		opacity: 0;
+
+		&.save_in_progress {
+			opacity: 1;
+		}
+
+	}
+
+}
