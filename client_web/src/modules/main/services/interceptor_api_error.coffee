@@ -1,3 +1,7 @@
+_ = require 'lodash'
+
+'use strict'
+
 angular.module('wpMain')
 	.factory('interceptor_api_error', ($q) ->
 

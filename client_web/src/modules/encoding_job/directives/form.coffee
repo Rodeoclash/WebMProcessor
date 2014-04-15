@@ -2,10 +2,9 @@
 
 angular.module('wpEncodingJob')
 	.directive('wpFormEncodingJob', (
-		MODULE_ROOT
 		Settings
 	) ->
-		templateUrl: "#{MODULE_ROOT}/encoding_job/views/directives/form.html"
+		templateUrl: "encoding_job/views/directives/form.html"
 		restrict: 'E'
 		scope: {
 			model: "="

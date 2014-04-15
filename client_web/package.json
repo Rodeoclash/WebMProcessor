@@ -7,7 +7,13 @@
     "url": "git@github.com:Rodeoclash/WebMProcessor.git"
   },
   "browser": {
-    "plugin": "./src/javascript/vendor/jquery-plugin.js"
+    "angular": "./src/bower_components/angular/angular.js",
+    "angular-resource": "./src/bower_components/angular-resource/angular-resource.js",
+    "angular-route": "./src/bower_components/angular-route/angular-route.js",
+    "angular-file-upload-shim": "./src/bower_components/danialfarid-angular-file-upload/dist/angular-file-upload-html5-shim.js",
+    "angular-file-upload": "./src/bower_components/danialfarid-angular-file-upload/dist/angular-file-upload.js",
+    "angular-ui": "./src/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js",
+    "angular-spinkit": "./src/bower_components/angular-spinkit/build/angular-spinkit.js"
   },
   "browserify": {
     "transform": [
@@ -25,21 +31,23 @@
     }
   },
   "devDependencies": {
-    "browserify-shim": "~3.4.1",
     "browserify": "~3.36.0",
+    "browserify-shim": "~3.4.1",
     "coffeeify": "~0.6.0",
     "connect": "~2.14.3",
+    "gulp": "~3.6.0",
+    "gulp-angular-templatecache": "^1.1.2",
     "gulp-changed": "~0.3.0",
     "gulp-compass": "~1.1.8",
     "gulp-imagemin": "~0.1.5",
     "gulp-livereload": "~1.2.0",
     "gulp-notify": "~1.2.4",
     "gulp-open": "~0.2.8",
-    "gulp": "~3.6.0",
     "vinyl-source-stream": "~0.1.1"
   },
   "dependencies": {
-    "backbone": "~1.1.2",
-    "jquery": "~2.1.0"
+    "humanize": "0.0.9",
+    "jquery": "~2.1.0",
+    "lodash": "^2.4.1"
   }
 }

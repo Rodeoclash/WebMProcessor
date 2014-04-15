@@ -1,13 +1,16 @@
+require 'angular'
+humanize = require('humanize')
+_ = require('lodash')
+
 'use strict'
 
 angular.module('wpEncodingJob')
 	.directive('wpUploadMovie', (
-		MODULE_ROOT
 		$upload
 		Settings
 		ResourceEncodingJobs
 	) ->
-		templateUrl: "#{MODULE_ROOT}/encoding_job/views/directives/upload_movie.html"
+		templateUrl: "encoding_job/views/directives/upload_movie.html"
 		restrict: 'E'
 		scope: {
 			encoding_job: "=encodingJob"

@@ -1,8 +1,8 @@
 'use strict'
 
 angular.module('wpMain')
-	.directive('bootstrapFormGroup', (MODULE_ROOT) ->
-		templateUrl: "#{MODULE_ROOT}/main/views/directives/bootstrap_form_group.html"
+	.directive('bootstrapFormGroup', () ->
+		templateUrl: "main/views/directives/bootstrap_form_group.html"
 		restrict: 'E'
 		require: "^form"
 		scope: true

@@ -1,8 +1,10 @@
+require 'angular'
+_ = require('lodash')
+
 'use strict'
 
 angular.module('wpEncodingJob')
 	.controller 'EndcodingJobIndexCtrl', (
-		MODULE_ROOT
 		$scope
 		$modal
 		$location
@@ -39,7 +41,7 @@ angular.module('wpEncodingJob')
 			
 			# show confirmation modal with details about the job
 			modal_instance = $modal.open({
-				templateUrl: "#{MODULE_ROOT}/encoding_job/views/modals/confirm_encoding_job_start.html",
+				templateUrl: "encoding_job/views/modals/confirm_encoding_job_start.html",
 				controller: "EndcodingJobModalConfirmJob"
 				resolve: {
 					encoding_job: () -> $scope.encoding_job

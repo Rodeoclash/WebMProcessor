@@ -1,3 +1,11 @@
+require 'angular-file-upload-shim'
+require 'angular'
+require 'angular-resource'
+require 'angular-route'
+require 'angular-file-upload'
+require 'angular-ui'
+require 'angular-spinkit'
+
 'use strict'
 
 angular.module('wpMain', [
@@ -6,15 +14,14 @@ angular.module('wpMain', [
 	'angularFileUpload'
 	'wpEncodingJob',
 	'ui.bootstrap',
-	'angularSpinkit'
+	'angularSpinkit',
+	'templates'
 ])
 
-	.constant('MODULE_ROOT', '/scripts/modules')
 	.constant('API_ROOT', 'http://localhost:3000/api/v1')
 	.constant('API_FORMAT', '.json')
 
 	.config (
-		MODULE_ROOT
 		$routeProvider
 		$httpProvider
 	) ->
@@ -27,7 +34,7 @@ angular.module('wpMain', [
 
 			# encoding job home
 			.when '/encoding_job',
-				templateUrl: "#{MODULE_ROOT}/encoding_job/views/pages/index.html"
+				templateUrl: "encoding_job/views/pages/index.html"
 				controller: "EndcodingJobIndexCtrl"
 				resolve: {
 					settings: (Settings) ->
@@ -36,7 +43,7 @@ angular.module('wpMain', [
 
 			# encoding job show
 			.when '/encoding_job/:id/show',
-				templateUrl: "#{MODULE_ROOT}/encoding_job/views/pages/show.html"
+				templateUrl: "encoding_job/views/pages/show.html"
 				controller: "EndcodingJobShowCtrl"
 				resolve: {
 					settings: (Settings) ->
@@ -47,3 +54,8 @@ angular.module('wpMain', [
 			# redirect to encoding job index
 			.otherwise
 				redirectTo: '/encoding_job'
+
+require './services/interceptor_api_error'
+require './services/settings'
+require './directives/bootstrap_form_group'
+require './directives/busy_indicator'
