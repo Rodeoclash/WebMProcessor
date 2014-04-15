@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('wpEncodingJob')
-	.directive('formEncodingJob', (
+	.directive('wpFormEncodingJob', (
 		MODULE_ROOT
 		Settings
 	) ->
@@ -11,9 +11,9 @@ angular.module('wpEncodingJob')
 			model: "="
 		}
 		link: (scope, element, attrs) ->
-
 			scope.settings = Settings.value()
 
-			console.log(scope.settings)
-
+			scope.$watch('form.$valid', (new_value, old_value) ->
+				scope.$emit('form-validity', { is_valid: new_value })
+			)
 	)

@@ -1,2 +1,29 @@
-<h2>Add Encoding Job</h2>
-<form-encoding-job model="encoding_job"></form-encoding-job>
+<!-- page loaded -->
+<div ng-if="!started() && !starting()">
+	<h2>Hello</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</p>
+	<button type="submit" class="btn btn-default" ng-click="getStarted()">Get started</button>
+</div>
+
+<!-- creating the blank job on the server, redirecting to the details page -->
+<div ng-if="starting() || encoding_job.start_encoding == true">
+	<busy-indicator>Preparing new job</busy-indicator>
+</div>
+
+<!-- acknowledged the terms -->
+<div ng-if="started() && !starting() && encoding_job.start_encoding == false">
+
+	<h2>Add Encoding Job</h2>
+	<wp-upload-movie encoding-job="encoding_job"></wp-upload-movie>
+	<wp-form-encoding-job model="encoding_job"></wp-form-encoding-job>
+
+	<button type="submit" class="btn btn-default" ng-click="startEncoding()" ng-disabled="!movieUploaded() || form_valid == false">Start encoding</button>
+
+	<p>
+		<ul ng:show="!movieUploaded() || form_valid == false">
+			<li ng-show="!movieUploaded()">Please upload a movie</li>
+			<li ng-show="form_valid == false">Please make sure the form is valid</li>
+		</ul>
+	</p>
+
+</div>

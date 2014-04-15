@@ -6,7 +6,7 @@
 		<span class="help-block" ng:show="control.$error.required && control.$dirty">{{label}} is required</span>
 		<span class="help-block" ng:show="control.$error.email && control.$dirty">{{label}} is not a valid email address</span>
 		<span class="help-block" ng:show="control.$error.number && control.$dirty">{{label}} is not a number</span>
-		<span class="help-block" ng:show="control.$error.max && control.$dirty">{{label}} exceeds the maximum value allowed</span>
-		<span class="help-block" ng:show="control.$error.min && control.$dirty">{{label}} is under the minimum value allowed</span>
+		<span class="help-block" ng:show="control.$error.minlength && control.$dirty">{{label}} exceeds the maximum value allowed</span>
+		<span class="help-block" ng:show="control.$error.maxlength && control.$dirty">{{label}} is under the minimum value allowed</span>
 	</div>
 </div>

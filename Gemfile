@@ -7,9 +7,12 @@ gem 'pg'
 gem "default_value_for", "~> 3.0.0"
 gem 'streamio-ffmpeg', :git => 'git@github.com:Rodeoclash/streamio-ffmpeg.git'
 gem 'carrierwave'
+gem 'carrierwave_direct', :path => '/Users/samuelrichardson/Sites/carrierwave_direct'
+gem "fog"
 gem 'firebase'
 gem 'active_model_serializers'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'angular_rails_csrf'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

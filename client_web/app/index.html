@@ -44,27 +44,40 @@
     <![endif]-->
 
     <!-- build:js scripts/vendor.js -->
+    <script src="bower_components/humanize/humanize.js"></script>
+    <script src="bower_components/danialfarid-angular-file-upload/dist/angular-file-upload-html5-shim.js"></script>
     <!-- bower:js -->
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-spinkit/angular-spinkit.js"></script>
     <!-- endbower -->
+    <script src="bower_components/danialfarid-angular-file-upload/dist/angular-file-upload.js"></script>
+    <script src="bower_components/angular-spinkit/build/angular-spinkit.js"></script>
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
 
         <!-- main -->
         <script src="scripts/modules/main/module.js"></script>
-        <script src="scripts/modules/main/directives/bootstrap_form_group.js"></script>
         <script src="scripts/modules/main/services/settings.js"></script>
+        <script src="scripts/modules/main/services/interceptor_api_error.js"></script>
+        <script src="scripts/modules/main/directives/bootstrap_form_group.js"></script>
+        <script src="scripts/modules/main/directives/busy_indicator.js"></script>
 
         <!-- encoding job -->
         <script src="scripts/modules/encoding_job/module.js"></script>
         <script src="scripts/modules/encoding_job/controllers/index.js"></script>
+        <script src="scripts/modules/encoding_job/controllers/show.js"></script>
+        <script src="scripts/modules/encoding_job/controllers/modals/confirm_job.js"></script>
         <script src="scripts/modules/encoding_job/services/resource_encoding_jobs.js"></script>
         <script src="scripts/modules/encoding_job/directives/form.js"></script>
+        <script src="scripts/modules/encoding_job/directives/upload_movie.js"></script>
 
         <!-- endbuild -->
 </body>

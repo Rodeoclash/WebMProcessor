@@ -3,7 +3,10 @@
 angular.module('wpMain', [
 	'ngResource',
 	'ngRoute'
-	'wpEncodingJob'
+	'angularFileUpload'
+	'wpEncodingJob',
+	'ui.bootstrap',
+	'angularSpinkit'
 ])
 
 	.constant('MODULE_ROOT', '/scripts/modules')
@@ -13,15 +16,28 @@ angular.module('wpMain', [
 	.config (
 		MODULE_ROOT
 		$routeProvider
+		$httpProvider
 	) ->
+
+		$httpProvider.defaults.withCredentials = true
+		$httpProvider.interceptors.push('interceptor_api_error')
 
 		# route configuration
 		$routeProvider
 
-			# encoding job index
+			# encoding job home
 			.when '/encoding_job',
 				templateUrl: "#{MODULE_ROOT}/encoding_job/views/pages/index.html"
 				controller: "EndcodingJobIndexCtrl"
+				resolve: {
+					settings: (Settings) ->
+						Settings.$promise
+				}
+
+			# encoding job show
+			.when '/encoding_job/:id/show',
+				templateUrl: "#{MODULE_ROOT}/encoding_job/views/pages/show.html"
+				controller: "EndcodingJobShowCtrl"
 				resolve: {
 					settings: (Settings) ->
 						Settings.$promise

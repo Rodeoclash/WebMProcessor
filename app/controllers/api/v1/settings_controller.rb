@@ -16,10 +16,11 @@ class Api::V1::SettingsController < ApplicationController
 			MIN_DURATION: ENV['MIN_DURATION'],
 			MAX_DURATION: ENV['MAX_DURATION'],
 			FIREBASE_URI: ENV['FIREBASE_URI'],
-			RESOLUTIONS: eval(ENV['RESOLUTIONS'])
+			RESOLUTIONS: eval(ENV['RESOLUTIONS']),
+			AWS_BUCKET: ENV['AWS_BUCKET'],
+			MIN_FILESIZE: ENV['MIN_FILESIZE'],
+			MAX_FILESIZE: ENV['MAX_FILESIZE']
 		}
-
-		puts ENV['RESOLUTIONS']
 
 		respond_with @settings
 	end

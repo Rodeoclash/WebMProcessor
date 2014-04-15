@@ -1,10 +1,15 @@
 'use strict'
 
 angular.module('wpEncodingJob')
-	.service 'ResourceEncodingJobs', (API_ROOT, $resource) ->
+	.service 'ResourceEncodingJobs', (
+		API_ROOT
+		API_FORMAT
+		$resource
+	) ->
 
-		resource = $resource("#{API_ROOT}/")
+		resource = $resource("#{API_ROOT}/encoding_jobs/:uuid#{API_FORMAT}", {uuid: '@uuid'}, {update: {method: "PUT"}})
 		
 		{
-
+			create: (payload) ->
+				resource.save(payload).$promise
 		}

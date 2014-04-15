@@ -4,6 +4,14 @@ GIT
   specs:
     streamio-ffmpeg (1.0.0)
 
+PATH
+  remote: /Users/samuelrichardson/Sites/carrierwave_direct
+  specs:
+    carrierwave_direct (0.0.14)
+      carrierwave
+      fog
+      uuidtools
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -33,6 +41,8 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    angular_rails_csrf (1.0.1)
+      rails (>= 3, < 5)
     arel (4.0.2)
     builder (3.1.4)
     carrierwave (0.10.0)
@@ -45,6 +55,7 @@ GEM
     erubis (2.7.0)
     ethon (0.7.0)
       ffi (>= 1.3.0)
+    excon (0.32.1)
     ffi (1.9.3)
     figaro (0.7.0)
       bundler (~> 1.0)
@@ -52,6 +63,24 @@ GEM
     firebase (0.2.1)
       json
       typhoeus (>= 0.6.1)
+    fog (1.21.0)
+      fog-brightbox
+      fog-core (~> 1.21, >= 1.21.1)
+      fog-json
+      nokogiri (~> 1.5, >= 1.5.11)
+    fog-brightbox (0.0.2)
+      fog-core
+      fog-json
+    fog-core (1.21.1)
+      builder
+      excon (~> 0.32)
+      formatador (~> 0.2.0)
+      mime-types
+      net-scp (~> 1.1)
+      net-ssh (>= 2.1.3)
+    fog-json (1.0.0)
+      multi_json (~> 1.0)
+    formatador (0.2.4)
     hike (1.2.3)
     i18n (0.6.9)
     json (1.8.1)
@@ -59,8 +88,14 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile (0.5.3)
     minitest (4.7.5)
     multi_json (1.9.2)
+    net-scp (1.2.0)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.8.0)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
     rack (1.5.2)
@@ -104,16 +139,20 @@ GEM
     typhoeus (0.6.8)
       ethon (>= 0.7.0)
     tzinfo (0.3.39)
+    uuidtools (2.1.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   active_model_serializers
+  angular_rails_csrf
   carrierwave
+  carrierwave_direct!
   default_value_for (~> 3.0.0)
   figaro
   firebase
+  fog
   pg
   rack-cors
   rails (= 4.0.4)
