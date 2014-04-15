@@ -13,7 +13,8 @@
     "angular-file-upload-shim": "./src/bower_components/danialfarid-angular-file-upload/dist/angular-file-upload-html5-shim.js",
     "angular-file-upload": "./src/bower_components/danialfarid-angular-file-upload/dist/angular-file-upload.js",
     "angular-ui": "./src/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js",
-    "angular-spinkit": "./src/bower_components/angular-spinkit/build/angular-spinkit.js"
+    "angular-spinkit": "./src/bower_components/angular-spinkit/build/angular-spinkit.js",
+    "angular-flash": "./src/bower_components/angular-flash/dist/angular-flash.js"
   },
   "browserify": {
     "transform": [

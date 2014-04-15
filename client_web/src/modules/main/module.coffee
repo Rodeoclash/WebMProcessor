@@ -5,6 +5,7 @@ require 'angular-route'
 require 'angular-file-upload'
 require 'angular-ui'
 require 'angular-spinkit'
+require 'angular-flash'
 
 'use strict'
 
@@ -15,7 +16,9 @@ angular.module('wpMain', [
 	'wpEncodingJob',
 	'ui.bootstrap',
 	'angularSpinkit',
-	'templates'
+	'templates',
+	'angular-flash.service',
+	'angular-flash.flash-alert-directive'
 ])
 
 	.constant('API_ROOT', 'http://localhost:3000/api/v1')
@@ -24,7 +27,10 @@ angular.module('wpMain', [
 	.config (
 		$routeProvider
 		$httpProvider
+		flashProvider
 	) ->
+
+		flashProvider.errorClassnames.push('alert-danger');
 
 		$httpProvider.defaults.withCredentials = true
 		$httpProvider.interceptors.push('interceptor_api_error')
@@ -57,5 +63,7 @@ angular.module('wpMain', [
 
 require './services/interceptor_api_error'
 require './services/settings'
+require './services/notifications'
 require './directives/bootstrap_form_group'
 require './directives/busy_indicator'
+require './directives/notifications'

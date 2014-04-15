@@ -55,7 +55,12 @@ angular.module('wpEncodingJob')
 					$location.path("/encoding_job/#{$scope.encoding_job.uuid}/show")
 
 		$scope.syncToServer = () ->
-			$scope.encoding_job.$update()
+			$scope.saving = true
+			$scope.encoding_job.$update().then( () ->
+				$scope.saving = false
+			, () ->
+				$scope.saving = false
+			)
 
 		debouncedSyncedtoServer = _.debounce($scope.syncToServer, 1000)
 
