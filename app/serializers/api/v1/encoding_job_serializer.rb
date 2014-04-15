@@ -12,7 +12,7 @@ class Api::V1::EncodingJobSerializer < ActiveModel::Serializer
 				:seek_time,
 				:files,
 				:start_encoding,
-				:movie_uploaded_to_s3,
+				:s3_response,
 				:s3_settings
 
 	def files

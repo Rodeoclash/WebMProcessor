@@ -46,13 +46,12 @@ angular.module('wpEncodingJob')
 
 				).success( (data, status, headers, config) ->
 					scope.percent_uploaded = 100
-					scope.encoding_job.movie_uploaded_to_s3 = true
+					scope.encoding_job.s3_response = data
 
 				).error( (data, status, headers, config) ->
 					console.warn(data, status)
 				)
 				
-
 			scope.isNotUploaded = () ->
 				_.isNull(scope.percent_uploaded)
 

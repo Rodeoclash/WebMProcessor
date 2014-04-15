@@ -22,6 +22,8 @@ class CreateEncodingJobs < ActiveRecord::Migration
       t.string :x264_vprofile
       t.string :x264_preset
       t.string :custom
+      t.text :s3_response
+      t.boolean :start_encoding, :default => false
       t.timestamps
     end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412064250) do
+ActiveRecord::Schema.define(version: 20140408105339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 20140412064250) do
     t.string   "x264_vprofile"
     t.string   "x264_preset"
     t.string   "custom"
+    t.text     "s3_response"
+    t.boolean  "start_encoding",          default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "movie"
-    t.boolean  "start_encoding",          default: false
-    t.boolean  "movie_uploaded_to_s3",    default: false
   end
 
   add_index "encoding_jobs", ["uuid"], name: "index_encoding_jobs_on_uuid", unique: true, using: :btree

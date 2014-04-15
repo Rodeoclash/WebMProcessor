@@ -48,7 +48,7 @@ class Api::V1::EncodingJobsController < ApplicationController
 			:duration,
 			:seek_time,
 			:start_encoding,
-			:movie_uploaded_to_s3
+			:s3_response
 		)
 	end
 
