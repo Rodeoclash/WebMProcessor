@@ -7,7 +7,7 @@
 		</div>
 	</div>
 
-	<!-- if we're in the process of uploading -->
+	<!-- if we're in the process of uploading to S3 -->
 	<div ng:show="isUploading()">
 		<div ng-show="percent_uploaded == 0"><busy-indicator>Preparing upload</busy-indicator></div>
 		<div ng-show="percent_uploaded > 0"><progressbar class="progress-striped" value="percent_uploaded">{{percent_uploaded}}%</progressbar></div>

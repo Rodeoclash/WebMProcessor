@@ -2,9 +2,7 @@ WebMProcessor::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :settings
-      resources :encoding_jobs do
-      	resource :movie
-      end
+      resources :encoding_jobs
     end
   end
 end

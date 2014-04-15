@@ -37,16 +37,14 @@ angular.module('wpEncodingJob')
 						'Policy': scope.encoding_job.s3_settings.policy
 						'Signature': scope.encoding_job.s3_settings.signature
 						'success_action_status': '201'
-						#'Content-Type': $files[0].type,
-						#'Content-Type': 'binary/octet-stream'
 					}
 				).progress( (evt) ->
 					scope.percent_uploaded = parseInt(100.0 * evt.loaded / evt.total)
 
 				).success( (data, status, headers, config) ->
 					scope.percent_uploaded = 100
-					console.log(data, status, headers, config)
-					#_.each(data, (v, k) -> scope.encoding_job[k] = v)
+					scope.encoding_job.movie_uploaded_to_s3 = true
+
 				).error( (data, status, headers, config) ->
 					console.warn(data, status)
 				)

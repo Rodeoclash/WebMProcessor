@@ -44,9 +44,11 @@ class Api::V1::EncodingJobsController < ApplicationController
 			:video_max_bitrate,
 			:video_min_bitrate,
 			:keyframe_interval,
+			:buffer_size,
 			:duration,
 			:seek_time,
-			:start_encoding
+			:start_encoding,
+			:movie_uploaded_to_s3
 		)
 	end
 
