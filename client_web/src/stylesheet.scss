@@ -1,0 +1,11 @@
+$icon-font-path: "bower_components/sass-bootstrap/fonts/";
+@import 'bower_components/sass-bootstrap/lib/bootstrap';
+
+/* encoding job */
+@import 'modules/encoding_job/styles/directives/upload_movie';
+
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
