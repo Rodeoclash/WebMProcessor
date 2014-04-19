@@ -13,7 +13,8 @@ class Api::V1::EncodingJobSerializer < ActiveModel::Serializer
 				:files,
 				:start_encoding,
 				:s3_response,
-				:s3_settings
+				:s3_settings,
+				:queue_job_id
 
 	def files
 		object.movie

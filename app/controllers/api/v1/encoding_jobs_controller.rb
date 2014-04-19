@@ -25,16 +25,6 @@ class Api::V1::EncodingJobsController < ApplicationController
 		end
 	end
 
-	def upload_movie
-		@encoding_job = EncodingJob.where(:uuid => params[:encoding_job_id]).first
-		@encoding_job.movie = params[:file]
-		if @encoding_job.save
-			respond_with @encoding_job, serializer: Api::V1::EncodingJobSerializer, location: [:api, :v1, @encoding_job]
-		else
-			render json: @encoding_job.errors, status: :unprocessable_entity
-		end
-	end
-
 	def encoding_job_params
 		params.permit(
 			:frame_rate,

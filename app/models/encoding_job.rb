@@ -34,6 +34,7 @@ class EncodingJob < ActiveRecord::Base
 	default_value_for :custom, "-an"
 
 	after_initialize :generate_uuid
+	before_save :start_transcode
 
 	def encoding_options
 	{
@@ -57,14 +58,37 @@ class EncodingJob < ActiveRecord::Base
 	}
 	end
 
-	def ready_for_encoding?
-		self.start_encoding == true
+	def screenshot_options
+		{
+			seek_time: 2,
+			resolution: '640x480'
+		}
+	end
+
+	def firebase_progress
+		@firebase_progress ||= FirebaseProgress.new(uuid: self.uuid)
 	end
 
 	private
 
 		def generate_uuid
 			self.uuid = SecureRandom.uuid unless self.uuid?
+		end
+		
+		def ready_for_transcode?
+			s3_response && start_encoding == true && queue_job_id.blank?
+		end
+
+		def start_transcode
+			if ready_for_transcode?
+				self.firebase_progress.update({
+					progress_percentage: 0,
+					status: "Placing your movie into the transcoding queue",
+					ready_for_download: false,
+					error_with_transcoding: false
+				})
+				self.queue_job_id = PerformTranscode.perform_async(self.id)
+			end
 		end
 
 end

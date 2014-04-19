@@ -1,3 +1,4 @@
+require 'firebase'
 require 'angular-file-upload-shim'
 require 'angular'
 require 'angular-resource'
@@ -6,6 +7,7 @@ require 'angular-file-upload'
 require 'angular-ui'
 require 'angular-spinkit'
 require 'angular-flash'
+require 'angular-fire'
 
 'use strict'
 
@@ -19,6 +21,7 @@ angular.module('wpMain', [
 	'templates',
 	'angular-flash.service',
 	'angular-flash.flash-alert-directive'
+	'firebase'
 ])
 
 	.constant('API_ROOT', 'http://localhost:3000/api/v1')

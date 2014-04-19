@@ -2,7 +2,7 @@ class CreateEncodingJobs < ActiveRecord::Migration
 
   def change
     create_table :encoding_jobs do |t|
-      t.string :uuid
+      t.string :uuid, :null => false
       t.string :video_codec
       t.integer :frame_rate
       t.string :resolution
@@ -24,10 +24,12 @@ class CreateEncodingJobs < ActiveRecord::Migration
       t.string :custom
       t.text :s3_response
       t.boolean :start_encoding, :default => false
+      t.string :queue_job_id
       t.timestamps
     end
 
     add_index :encoding_jobs, :uuid, :unique => true
+    add_index :encoding_jobs, :queue_job_id, :unique => true
   end
 
 end

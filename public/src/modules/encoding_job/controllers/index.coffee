@@ -25,7 +25,7 @@ angular.module('wpEncodingJob')
 				$scope.encoding_job = response
 
 		$scope.movieUploaded = () ->
-			$scope.encoding_job.movie_uploaded_to_s3 == true
+			$scope.encoding_job.s3_response?
 
 		# true when we're in the process of creating the start of encoding job on the server
 		$scope.starting = () ->

@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140408105339) do
   enable_extension "uuid-ossp"
 
   create_table "encoding_jobs", force: true do |t|
-    t.string   "uuid"
+    t.string   "uuid",                                    null: false
     t.string   "video_codec"
     t.integer  "frame_rate"
     t.string   "resolution"
@@ -40,11 +40,13 @@ ActiveRecord::Schema.define(version: 20140408105339) do
     t.string   "custom"
     t.text     "s3_response"
     t.boolean  "start_encoding",          default: false
+    t.string   "queue_job_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "movie"
   end
 
+  add_index "encoding_jobs", ["queue_job_id"], name: "index_encoding_jobs_on_queue_job_id", unique: true, using: :btree
   add_index "encoding_jobs", ["uuid"], name: "index_encoding_jobs_on_uuid", unique: true, using: :btree
 
 end

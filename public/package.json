@@ -7,6 +7,7 @@
     "url": "git@github.com:Rodeoclash/WebMProcessor.git"
   },
   "browser": {
+    "firebase": "./src/bower_components/firebase/firebase.js",
     "angular": "./src/bower_components/angular/angular.js",
     "angular-resource": "./src/bower_components/angular-resource/angular-resource.js",
     "angular-route": "./src/bower_components/angular-route/angular-route.js",
@@ -14,20 +15,20 @@
     "angular-file-upload": "./src/bower_components/danialfarid-angular-file-upload/dist/angular-file-upload.js",
     "angular-ui": "./src/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js",
     "angular-spinkit": "./src/bower_components/angular-spinkit/build/angular-spinkit.js",
-    "angular-flash": "./src/bower_components/angular-flash/dist/angular-flash.js"
+    "angular-flash": "./src/bower_components/angular-flash/dist/angular-flash.js",
+    "angular-fire": "./src/bower_components/angularfire/angularfire.js"
   },
   "browserify": {
     "transform": [
       "browserify-shim",
-      "coffeeify",
-      "hbsfy"
+      "coffeeify"
     ]
   },
   "browserify-shim": {
-    "plugin": {
-      "exports": "plugin",
+    "firebase": "firebase",
+    "angularfire": {
       "depends": [
-        "jquery:$"
+        "firebase"
       ]
     }
   },

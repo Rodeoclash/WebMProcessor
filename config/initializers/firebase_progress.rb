@@ -7,29 +7,19 @@ class FirebaseProgress
 		@client = Firebase::Client.new(ENV['FIREBASE_URI'])
 	end
 
-	def started
-		payload = {
-			:progress => 0.0,
-			:status => "Enqueued"
-		}
-		@client.set(@uuid, payload)
+	def update(details)
+		Rails.logger.debug "Status: #{details[:status]}, Progress: #{details[:progress_percentage]}, Download ready: #{details[:ready_for_download]}, Had error: #{details[:error_with_transcoding]}"
+		puts "Status: #{details[:status]}, Progress: #{details[:progress_percentage]}"
+		@client.set(@uuid, {
+			:progress_percentage => details[:progress_percentage],
+			:status => details[:status],
+			:ready_for_download => details[:ready_for_download],
+			:error_with_transcoding => details[:error_with_transcoding]
+		})
 	end
 
-	def updated(progress_percentage)
-		payload = {
-			:progress => progress_percentage,
-			:status => "Encoding movie..."
-		}
-		@client.set(@uuid, payload)
-	end
-
-	def finished
-		payload = {
-			:progress => 1.0,
-			:status => "Finished"
-		}
-		@client.set(@uuid, payload)
-		sleep 2
+	# removes the data from the firebase endpoint
+	def remove
 		@client.delete(@uuid)
 	end
 
