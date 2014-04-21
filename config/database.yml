@@ -18,6 +18,3 @@ test:
 
 production:
   <<: *shared
-  database: WebMProcessor_production
-  username: WebMProcessor
-  password: qZBEd6Wjrm6qDqUy
