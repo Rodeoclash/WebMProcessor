@@ -5,7 +5,7 @@ _ = require('lodash')
 'use strict'
 
 angular.module('wpEncodingJob')
-	.directive('wpUploadMovie', (
+	.directive('wpEncodingJobUploadMovie', (
 		$upload
 		Settings
 		ResourceEncodingJobs

@@ -12,4 +12,7 @@ angular.module('wpEncodingJob')
 		{
 			create: (payload) ->
 				resource.save(payload).$promise
+
+			get: (options) ->
+				resource.get({uuid: options.uuid}).$promise
 		}

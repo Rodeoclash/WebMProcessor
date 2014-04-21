@@ -51,7 +51,7 @@ angular.module('wpMain', [
 				}
 
 			# encoding job show
-			.when '/encoding_job/:id/show',
+			.when '/encoding_job/:uuid/show',
 				templateUrl: "encoding_job/views/pages/show.html"
 				controller: "EndcodingJobShowCtrl"
 				resolve: {

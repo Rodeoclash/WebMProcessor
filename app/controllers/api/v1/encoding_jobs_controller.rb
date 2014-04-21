@@ -12,7 +12,7 @@ class Api::V1::EncodingJobsController < ApplicationController
 	end
 
 	def show
-		@encoding_job = EncodingJob.where(:uuid => params[:uuid]).first
+		@encoding_job = EncodingJob.where(:uuid => params[:id]).first
 		respond_with @encoding_job, serializer: Api::V1::EncodingJobSerializer
 	end
 

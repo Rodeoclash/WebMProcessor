@@ -1,3 +1,10 @@
-<h1>Show</h1>
-<p>Details go here</p>
-<pre>{{status}}</pre>
+<a ng-click="navigation.encodeAnotherVideo()">Encode another video</a>
+
+<h1>Your Video <small>{{encoding_job.uuid}}</small></h1>
+
+<div ng:if="hasStatus()">
+	<wp-encoding-job-status status="status"></wp-encoding-job-status>
+</div>
+<div ng:if="hasEncodingJob()">
+	<wp-encoding-job-download encoding-job="encoding_job"></wp-encoding-job-download>
+</div>

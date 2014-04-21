@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('wpEncodingJob')
-	.directive('wpFormEncodingJob', (
+	.directive('wpEncodingJobForm', (
 		Settings
 	) ->
 		templateUrl: "encoding_job/views/directives/form.html"
