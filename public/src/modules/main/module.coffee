@@ -24,7 +24,7 @@ angular.module('wpMain', [
 	'firebase'
 ])
 
-	.constant('API_ROOT', 'http://localhost:3000/api/v1')
+	.constant('API_ROOT', '/api/v1')
 	.constant('API_FORMAT', '.json')
 
 	.config (

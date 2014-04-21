@@ -10,3 +10,6 @@
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
 WebMProcessor::Application.config.secret_key_base = '134a1d21350b65c6e10aa15748d639698fa06bbf870e43f6c7247cfb076943ae2c4d9c284dc3eee458f6b0282dfdc46814a6c684d65b33160cb3b1279d1658b7'
+
+secret = Rails.env.production? ? ENV['SECRET_TOKEN'] : "top_secret_token"
+WebMProcessor::Application.config.secret_key_base = secret
