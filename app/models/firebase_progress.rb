@@ -1,5 +1,3 @@
-#ENV['FIREBASE_KEY'] if needed
-
 class FirebaseProgress
 
 	def initialize(options)
