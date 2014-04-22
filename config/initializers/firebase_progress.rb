@@ -2,6 +2,12 @@ class FirebaseProgress
 
 	def initialize(options)
 		@uuid = options[:uuid]
+
+		puts "------------------------------"
+		puts "In init"
+		puts Firebase.inspect
+		puts "------------------------------"
+
 		@client = Firebase::Client.new(ENV['FIREBASE_URI'])
 	end
 
