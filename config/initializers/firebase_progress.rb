@@ -1,6 +1,8 @@
-class FirebaseProgress
+#ENV['FIREBASE_KEY'] if needed
 
-	#ENV['FIREBASE_KEY']
+require "firebase"
+
+class FirebaseProgress
 
 	def initialize(options)
 		@uuid = options[:uuid]
