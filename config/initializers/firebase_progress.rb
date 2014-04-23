@@ -1,5 +1,3 @@
-require "#{Rails.root}/config/initializers/firebase_progress.rb"
-
 class FirebaseProgress
 
 	def initialize(options)
