@@ -2,6 +2,11 @@
 
 		def initialize(options)
 			@uuid = options[:uuid]
+
+			puts "---- loaded gems"
+			puts Gem.loaded_specs.keys
+			puts "----------------"
+
 			@client = ::Firebase::Client.new(ENV['FIREBASE_URI'])
 		end
 
