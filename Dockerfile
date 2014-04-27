@@ -53,10 +53,11 @@ RUN git clone git@github.com:Rodeoclash/WebMProcessor.git $APP_ROOT/$APP_NAME
 RUN echo "gem: --no-ri --no-rdoc" > /home/deploy/.gemrc
 
 # install gems for project
-RUN cd /var/www/WebMProcessor && gem install bundler
+RUN cd $APP_ROOT/$APP_NAME && gem install bundler
 RUN bundle install --gemfile=$APP_ROOT/$APP_NAME/Gemfile
 
 # start nginx
 RUN nginx -c $APP_ROOT/$APP_NAME/config/nginx.conf
 
 # start the foreman processes
+CMD ["foreman", "start", "-d", "$APP_ROOT/$APP_NAME"]
