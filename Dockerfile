@@ -1,5 +1,9 @@
 FROM stackbrew/ubuntu:saucy
 MAINTAINER Samuel Richardson <sam@richardson.co.nz>
+EXPOSE 80
+
+ENV APP_ROOT /var/www
+ENV APP_NAME WebMProcessor
 
 # add a deploy user
 RUN useradd -d /home/deploy -m -s /bin/bash deploy
@@ -27,8 +31,12 @@ RUN tar -xzvf ruby-2.1.1.tar.gz
 RUN ./ruby-2.1.1/configure && make && make install
  
 # ffmpeg install
-# RUN apt-get install -y libsdl1.2-dev zlib1g-dev libfaad-dev libgsm1-dev libtheora-dev libvorbis-dev libspeex-dev libopencore-amrwb-dev libopencore-amrnb-dev libxvidcore-dev libxvidcore4 libmp3lame-dev libjpeg62 libjpeg62-dev libvpx1
-# RUN apt-get install -y ffmpeg
+RUN apt-get install -y libsdl1.2-dev zlib1g-dev libfaad-dev libgsm1-dev libtheora-dev libvorbis-dev libspeex-dev libopencore-amrwb-dev libopencore-amrnb-dev libxvidcore-dev libxvidcore4 libmp3lame-dev libjpeg62 libjpeg62-dev libvpx1
+RUN apt-get install -y ffmpeg
+
+# nginx install
+RUN apt-get install -y nginx
+RUN mkdir -p /var/log/nginx/ && chown -R deploy:deploy /var/log/nginx/
 
 # all following commands as deploy user
 USER deploy
@@ -36,19 +44,19 @@ ENV HOME /home/deploy
 ENV GEM_HOME $HOME/.gems
 ENV GEM_PATH $HOME/.gems
 ENV PATH $GEM_PATH/bin:$PATH
+ENV RAILS_ENV production
 
 # install ssh and clone from github
-RUN git clone git@github.com:Rodeoclash/WebMProcessor.git /var/www/WebMProcessor
+RUN git clone git@github.com:Rodeoclash/WebMProcessor.git $APP_ROOT/$APP_NAME
  
 # don't install rdocs by default
 RUN echo "gem: --no-ri --no-rdoc" > /home/deploy/.gemrc
 
 # install gems for project
 RUN cd /var/www/WebMProcessor && gem install bundler
-RUN bundle install --gemfile=/var/www/WebMProcessor/Gemfile
-
-# start the foreman process
+RUN bundle install --gemfile=$APP_ROOT/$APP_NAME/Gemfile
 
 # start nginx
+RUN nginx -c $APP_ROOT/$APP_NAME/config/nginx.conf
 
-EXPOSE 80
+# start the foreman processes
