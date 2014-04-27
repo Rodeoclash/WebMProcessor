@@ -1,20 +1,19 @@
 shared: &shared
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql
 
 localaccess: &localaccess
-  username: samuelrichardson
-  password:
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 development:
   <<: *localaccess
   <<: *shared
-  database: WebMProcessor_development
+  database: <%= ENV['DATABASE_NAME'] %>
 
 test:
   <<: *localaccess
   <<: *shared
-  database: WebMProcessor_test
+  database: <%= ENV['DATABASE_NAME'] %>
 
 production:
   <<: *shared

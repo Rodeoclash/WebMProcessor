@@ -87,7 +87,6 @@ GEM
     hike (1.2.3)
     i18n (0.6.9)
     json (1.8.1)
-    kgio (2.9.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -95,13 +94,15 @@ GEM
     mini_portile (0.5.3)
     minitest (4.7.5)
     multi_json (1.9.2)
+    mysql (2.9.1)
     net-scp (1.2.0)
       net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-    pg (0.17.1)
     polyglot (0.3.4)
+    puma (2.8.2)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-cors (0.2.9)
     rack-test (0.6.2)
@@ -119,7 +120,6 @@ GEM
       activesupport (= 4.0.4)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    raindrops (0.13.0)
     rake (10.3.1)
     rdoc (4.1.1)
       json (~> 1.4)
@@ -158,10 +158,6 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.6)
-    unicorn (4.8.2)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
     uuidtools (2.1.4)
 
 PLATFORMS
@@ -177,11 +173,11 @@ DEPENDENCIES
   firebase
   fog
   foreman
-  pg
+  mysql
+  puma
   rack-cors
   rails (= 4.0.4)
   sdoc
   sidekiq
   streamio-ffmpeg
   unf
-  unicorn

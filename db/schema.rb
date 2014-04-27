@@ -13,10 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140408105339) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "uuid-ossp"
-
   create_table "encoding_jobs", force: true do |t|
     t.string   "uuid",                                    null: false
     t.string   "video_codec"
