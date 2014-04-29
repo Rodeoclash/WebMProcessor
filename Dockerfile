@@ -32,7 +32,6 @@ RUN apt-get install -y nginx
 iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8000
 
 # setup nginx folders
-RUN mkdir -p /var/log/nginx && chown deploy:deploy /var/log/nginx
 RUN mkdir -p /var/lib/nginx && chown deploy:deploy /var/lib/nginx
 
 # install ruby 2.1.1 from source
@@ -62,6 +61,7 @@ RUN git clone git@github.com:Rodeoclash/WebMProcessor.git $APP_PATH
 # setup tmp folders
 RUN mkdir -p $APP_PATH/tmp/pids
 RUN mkdir -p $APP_PATH/tmp/sockets
+RUN mkdir -p $APP_PATH/tmp/logs
 
 # install gems for project
 RUN cd $APP_PATH && gem install bundler
