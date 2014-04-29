@@ -59,12 +59,11 @@ RUN echo "gem: --no-ri --no-rdoc" > /home/deploy/.gemrc
 RUN cd $APP_ROOT/$APP_NAME && gem install bundler
 RUN bundle install --gemfile=$APP_ROOT/$APP_NAME/Gemfile
 
-# start nginx
+# start nginx (remove once this works)
 RUN nginx -c $APP_ROOT/$APP_NAME/config/nginx.conf
 
 # migrate database
 RUN cd $APP_ROOT/$APP_NAME && rake db:migrate
 
 # return the foreman process command to start everything
-USER deploy
 CMD ["foreman", "start", "-d", "$APP_ROOT/$APP_NAME"]

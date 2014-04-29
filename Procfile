@@ -1,2 +1,3 @@
-web: bundle exec puma -C ./config/puma.rb
-job: bundle exec sidekiq -C ./config/sidekiq.yml
+rails: bundle exec puma -C ./config/puma.rb
+sidekiq: bundle exec sidekiq -C ./config/sidekiq.yml
+nginx: nginx -c ./config/nginx.conf
