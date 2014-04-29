@@ -24,6 +24,13 @@ RUN apt-get install -y git-core
 # install mysql
 RUN apt-get install -y libmysql-ruby libmysqlclient-dev
 
+# install nginx
+RUN apt-get install -y nginx
+
+# setup nginx folders
+RUN mkdir -p /var/log && chown deploy:deploy /var/log
+RUN mkdir -p /var/lib/nginx && chown deploy:deploy /var/lib/nginx
+
 # install ruby 2.1.1 from source
 RUN apt-get install -y curl zlib1g-dev build-essential libssl-dev libreadline6 libreadline6-dev libyaml-dev libxml2-dev libxslt1-dev wget dialog
 RUN wget http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.1.tar.gz
@@ -33,10 +40,6 @@ RUN ./ruby-2.1.1/configure && make && make install
 # ffmpeg install
 RUN apt-get install -y libsdl1.2-dev zlib1g-dev libfaad-dev libgsm1-dev libtheora-dev libvorbis-dev libspeex-dev libopencore-amrwb-dev libopencore-amrnb-dev libxvidcore-dev libxvidcore4 libmp3lame-dev libjpeg62 libjpeg62-dev libvpx1
 RUN apt-get install -y ffmpeg
-
-# nginx install
-RUN apt-get install -y nginx
-RUN mkdir -p /var/log/nginx/ && chown -R deploy:deploy /var/log/nginx/
 
 # all following commands as deploy user
 USER deploy
@@ -59,5 +62,9 @@ RUN bundle install --gemfile=$APP_ROOT/$APP_NAME/Gemfile
 # start nginx
 RUN nginx -c $APP_ROOT/$APP_NAME/config/nginx.conf
 
-# start the foreman processes
+# migrate database
+RUN cd $APP_ROOT/$APP_NAME && rake db:migrate
+
+# return the foreman process command to start everything
+USER deploy
 CMD ["foreman", "start", "-d", "$APP_ROOT/$APP_NAME"]
