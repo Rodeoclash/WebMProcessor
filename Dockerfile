@@ -27,6 +27,9 @@ RUN apt-get install -y libmysql-ruby libmysqlclient-dev
 # install nginx
 RUN apt-get install -y nginx
 
+# redirect port 80 to port 8000 for nginx
+iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8000
+
 # setup nginx folders
 RUN mkdir -p /var/log/nginx && chown deploy:deploy /var/log/nginx
 RUN mkdir -p /var/lib/nginx && chown deploy:deploy /var/lib/nginx
