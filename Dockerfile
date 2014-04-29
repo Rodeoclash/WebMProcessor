@@ -63,6 +63,7 @@ RUN cd $APP_ROOT/$APP_NAME && gem install bundler
 RUN bundle install --gemfile=$APP_ROOT/$APP_NAME/Gemfile
 
 # start nginx (remove once this works)
+RUN touch $APP_ROOT/$APP_NAME/tmp/pids/nginx.pid
 RUN nginx -c $APP_ROOT/$APP_NAME/config/nginx.conf
 
 # migrate database
