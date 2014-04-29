@@ -28,7 +28,7 @@ RUN apt-get install -y libmysql-ruby libmysqlclient-dev
 RUN apt-get install -y nginx
 
 # setup nginx folders
-RUN mkdir -p /var/log && chown deploy:deploy /var/log
+RUN mkdir -p /var/log/nginx && chown deploy:deploy /var/log/nginx
 RUN mkdir -p /var/lib/nginx && chown deploy:deploy /var/lib/nginx
 
 # install ruby 2.1.1 from source
