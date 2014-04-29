@@ -4,12 +4,13 @@ EXPOSE 80
 
 ENV APP_ROOT /var/www
 ENV APP_NAME WebMProcessor
+ENV APP_PATH $APP_ROOT/$APP_NAME
 
 # add a deploy user
 RUN useradd -d /home/deploy -m -s /bin/bash deploy
 
-# create deploy folder
-RUN mkdir -p /var/www && chown deploy:deploy /var/www
+# create deploy folders
+RUN mkdir -p $APP_ROOT && chown deploy:deploy $APP_ROOT
 
 # add ssh keys
 ADD .ssh /home/deploy/.ssh
@@ -52,22 +53,25 @@ ENV GEM_PATH $HOME/.gems
 ENV PATH $GEM_PATH/bin:$PATH
 ENV RAILS_ENV production
 
-# install ssh and clone from github
-RUN git clone git@github.com:Rodeoclash/WebMProcessor.git $APP_ROOT/$APP_NAME
- 
 # don't install rdocs by default
 RUN echo "gem: --no-ri --no-rdoc" > /home/deploy/.gemrc
 
+# install ssh and clone from github
+RUN git clone git@github.com:Rodeoclash/WebMProcessor.git $APP_PATH
+
+# setup tmp folders
+RUN mkdir -p $APP_PATH/tmp/pids
+RUN mkdir -p $APP_PATH/tmp/sockets
+
 # install gems for project
-RUN cd $APP_ROOT/$APP_NAME && gem install bundler
-RUN bundle install --gemfile=$APP_ROOT/$APP_NAME/Gemfile
+RUN cd $APP_PATH && gem install bundler
+RUN bundle install --gemfile=$APP_PATH/Gemfile
 
 # start nginx (remove once this works)
-RUN touch $APP_ROOT/$APP_NAME/tmp/pids/nginx.pid
-RUN nginx -c $APP_ROOT/$APP_NAME/config/nginx.conf
+RUN nginx -c $APP_PATH/config/nginx.conf
 
 # migrate database
-RUN cd $APP_ROOT/$APP_NAME && rake db:migrate
+RUN cd $APP_PATH && rake db:migrate
 
 # return the foreman process command to start everything
-CMD ["foreman", "start", "-d", "$APP_ROOT/$APP_NAME"]
+CMD ["foreman", "start", "-d", "$APP_PATH"]
