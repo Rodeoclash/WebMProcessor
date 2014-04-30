@@ -33,6 +33,7 @@ iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 80
 
 # setup nginx folders
 RUN mkdir -p /var/lib/nginx && chown deploy:deploy /var/lib/nginx
+RUN mkdir -p /var/log/nginx && chown deploy:deploy /var/log/nginx
 
 # install ruby 2.1.1 from source
 RUN apt-get install -y curl zlib1g-dev build-essential libssl-dev libreadline6 libreadline6-dev libyaml-dev libxml2-dev libxslt1-dev wget dialog
