@@ -53,8 +53,6 @@ GEM
     dotenv (0.11.0)
       dotenv-deployment (= 0.0.1)
     dotenv-deployment (0.0.1)
-    dotenv-rails (0.11.0)
-      dotenv (= 0.11.0)
     erubis (2.7.0)
     ethon (0.7.0)
       ffi (>= 1.3.0)
@@ -169,7 +167,6 @@ DEPENDENCIES
   carrierwave
   carrierwave_direct!
   default_value_for (~> 3.0.0)
-  dotenv-rails
   firebase
   fog
   foreman

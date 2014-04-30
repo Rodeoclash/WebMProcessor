@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.4'
-gem 'dotenv-rails'
 gem 'mysql'
 gem 'default_value_for', '~> 3.0.0'
 gem 'streamio-ffmpeg'

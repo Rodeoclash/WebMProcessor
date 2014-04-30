@@ -1,19 +1,20 @@
 shared: &shared
   adapter: mysql
-
-localaccess: &localaccess
-  username: <%= ENV['DATABASE_USER'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  encoding: utf8
 
 development:
-  <<: *localaccess
   <<: *shared
-  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DEVELOPMENT_DATABASE_USER'] %>
+  password: <%= ENV['DEVELOPMENT_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DEVELOPMENT_DATABASE_NAME'] %>
+  host: <%= ENV['DEVELOPMENT_DATABASE_HOST'] %>
 
 test:
-  <<: *localaccess
   <<: *shared
-  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['TEST_DATABASE_USER'] %>
+  password: <%= ENV['TEST_DATABASE_PASSWORD'] %>
+  database: <%= ENV['TEST_DATABASE_NAME'] %>
+  host: <%= ENV['TEST_DATABASE_HOST'] %>
 
 production:
   <<: *shared
