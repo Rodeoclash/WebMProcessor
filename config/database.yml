@@ -18,3 +18,7 @@ test:
 
 production:
   <<: *shared
+  username: <%= ENV['PRODUCTION_DATABASE_USER'] %>
+  password: <%= ENV['PRODUCTION_DATABASE_PASSWORD'] %>
+  database: <%= ENV['PRODUCTION_DATABASE_NAME'] %>
+  host: <%= ENV['PRODUCTION_DATABASE_HOST'] %>
