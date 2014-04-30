@@ -68,9 +68,6 @@ RUN mkdir -p $APP_PATH/tmp/logs
 RUN cd $APP_PATH && gem install bundler
 RUN bundle install --gemfile=$APP_PATH/Gemfile
 
-# start nginx (remove once this works)
-RUN nginx -c $APP_PATH/config/nginx.conf
-
 # migrate database
 RUN cd $APP_PATH && rake db:migrate
 
