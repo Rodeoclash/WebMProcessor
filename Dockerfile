@@ -9,8 +9,10 @@ ENV APP_PATH $APP_ROOT/$APP_NAME
 # add a deploy user
 RUN useradd -d /home/deploy -m -s /bin/bash deploy
 
-# create deploy folder
-RUN mkdir -p $APP_PATH && chown deploy:deploy $APP_PATH
+# create deploy folder and copy code
+RUN mkdir -p $APP_PATH
+ADD . $APP_PATH
+RUN chown -R deploy:deploy $APP_PATH
 
 # update aptitude
 RUN apt-get -y update
@@ -90,9 +92,6 @@ ENV REDIS_URL redis://locahost:6379
 
 # don't install rdocs by default
 RUN echo "gem: --no-ri --no-rdoc" > /home/deploy/.gemrc
-
-# copy over code
-ADD . $APP_PATH
 
 # setup tmp folders
 #RUN mkdir -p $APP_PATH/tmp/pids
