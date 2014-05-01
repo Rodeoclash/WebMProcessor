@@ -1,13 +1,15 @@
 FROM stackbrew/ubuntu:saucy
 MAINTAINER Samuel Richardson <sam@richardson.co.nz>
-EXPOSE 80
+EXPOSE 80 # nginx
+EXPOSE 22 # ssh
 
 ENV APP_ROOT /var/www
 ENV APP_NAME WebMProcessor
 ENV APP_PATH $APP_ROOT/$APP_NAME
 
-# add a deploy user
+# add a deploy user and set a password
 RUN useradd -d /home/deploy -m -s /bin/bash deploy
+RUN echo 'deploy:q00iwrij' | chpasswd
 
 # create deploy folder and copy code
 RUN mkdir -p $APP_PATH
@@ -16,6 +18,10 @@ RUN chown -R deploy:deploy $APP_PATH
 
 # update aptitude
 RUN apt-get -y update
+
+# install sshd
+RUN apt-get install -y openssh-server
+RUN mkdir -p /var/run/sshd && chown deploy:deploy /var/run/sshd
 
 # install git
 RUN apt-get install -y git-core
@@ -51,45 +57,6 @@ ENV GEM_PATH $HOME/.gems
 ENV PATH $GEM_PATH/bin:$PATH
 ENV RAILS_ENV production
 
-# [TEMP] set env variables
-# ========================
-ENV MIN_FRAME_RATE 10
-ENV MAX_FRAME_RATE 300
-ENV MIN_BIT_RATE 100
-ENV MAX_BIT_RATE 5000
-ENV MIN_BUFFER_SIZE 100
-ENV MAX_BUFFER_SIZE 5000
-ENV MIN_BIT_RATE_TOLERANCE 100
-ENV MAX_BIT_RATE_TOLERANCE 5000
-ENV MIN_KEYFRAME_INTERVAL 100
-ENV MAX_KEYFRAME_INTERVAL 500
-ENV MIN_DURATION 1
-ENV MAX_DURATION 12
-ENV MIN_FILESIZE 102400
-ENV MAX_FILESIZE 209715200
-
-ENV DEVELOPMENT_DATABASE_NAME WebMProcessor_development
-ENV DEVELOPMENT_DATABASE_USER root
-ENV DEVELOPMENT_DATABASE_HOST localhost
-
-ENV TEST_DATABASE_NAME WebMProcessor_test
-ENV TEST_DATABASE_USER root
-ENV TEST_DATABASE_HOST localhost
-
-ENV PRODUCTION_DATABASE_NAME WebMProcessor_production
-ENV PRODUCTION_DATABASE_USER root
-ENV PRODUCTION_DATABASE_HOST 192.168.0.7
-
-ENV FIREBASE_URI https://webmprocessor.firebaseio.com
-ENV FIREBASE_KEY XNOZwXBLv3mficZE1IMYog3WUCHBJhhIeLsHHwEy
-
-ENV AWS_ACCESS_KEY_ID AKIAJ7CHP6V5RACW4WLQ
-ENV AWS_SECRET_ACCESS_KEY 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
-ENV AWS_BUCKET webm-convertor
-
-ENV REDIS_URL redis://locahost:6379
-# ========================
-
 # don't install rdocs by default
 RUN echo "gem: --no-ri --no-rdoc" > /home/deploy/.gemrc
 
@@ -103,7 +70,7 @@ RUN cd $APP_PATH && gem install bundler
 RUN bundle install --gemfile=$APP_PATH/Gemfile
 
 # migrate database
-RUN cd $APP_PATH && rake db:migrate
+# RUN cd $APP_PATH && rake db:migrate
 
 # return the foreman process command to start everything
-CMD ["foreman", "start", "-d", "$APP_PATH"]
+CMD ["foreman", "start", "-d", "$APP_PATH", "-f", "Procfile.production"]
