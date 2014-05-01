@@ -9,12 +9,8 @@ ENV APP_PATH $APP_ROOT/$APP_NAME
 # add a deploy user
 RUN useradd -d /home/deploy -m -s /bin/bash deploy
 
-# create deploy folders
-RUN mkdir -p $APP_ROOT && chown deploy:deploy $APP_ROOT
-
-# add ssh keys
-ADD .ssh /home/deploy/.ssh
-RUN chmod -R 700 /home/deploy/.ssh && chown -R deploy:deploy /home/deploy/.ssh
+# create deploy folder
+RUN mkdir -p $APP_PATH && chown deploy:deploy $APP_PATH
 
 # update aptitude
 RUN apt-get -y update
@@ -72,17 +68,14 @@ ENV MAX_FILESIZE 209715200
 
 ENV DEVELOPMENT_DATABASE_NAME WebMProcessor_development
 ENV DEVELOPMENT_DATABASE_USER root
-ENV DEVELOPMENT_DATABASE_PASSWORD 
 ENV DEVELOPMENT_DATABASE_HOST localhost
 
 ENV TEST_DATABASE_NAME WebMProcessor_test
 ENV TEST_DATABASE_USER root
-ENV TEST_DATABASE_PASSWORD 
 ENV TEST_DATABASE_HOST localhost
 
 ENV PRODUCTION_DATABASE_NAME WebMProcessor_production
 ENV PRODUCTION_DATABASE_USER root
-ENV PRODUCTION_DATABASE_PASSWORD 
 ENV PRODUCTION_DATABASE_HOST 192.168.0.7
 
 ENV FIREBASE_URI https://webmprocessor.firebaseio.com
@@ -92,19 +85,19 @@ ENV AWS_ACCESS_KEY_ID AKIAJ7CHP6V5RACW4WLQ
 ENV AWS_SECRET_ACCESS_KEY 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
 ENV AWS_BUCKET webm-convertor
 
-REDIS_URL redis://locahost:6379
+ENV REDIS_URL redis://locahost:6379
 # ========================
 
 # don't install rdocs by default
 RUN echo "gem: --no-ri --no-rdoc" > /home/deploy/.gemrc
 
-# install ssh and clone from github
-RUN git clone git@github.com:Rodeoclash/WebMProcessor.git $APP_PATH
+# copy over code
+ADD . $APP_PATH
 
 # setup tmp folders
-RUN mkdir -p $APP_PATH/tmp/pids
-RUN mkdir -p $APP_PATH/tmp/sockets
-RUN mkdir -p $APP_PATH/tmp/logs
+#RUN mkdir -p $APP_PATH/tmp/pids
+#RUN mkdir -p $APP_PATH/tmp/sockets
+#RUN mkdir -p $APP_PATH/tmp/logs
 
 # install gems for project
 RUN cd $APP_PATH && gem install bundler
