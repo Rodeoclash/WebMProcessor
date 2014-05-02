@@ -1,7 +1,7 @@
 FROM stackbrew/ubuntu:saucy
 MAINTAINER Samuel Richardson <sam@richardson.co.nz>
-EXPOSE 80 # nginx
-EXPOSE 22 # ssh
+EXPOSE 80
+EXPOSE 22
 
 ENV APP_ROOT /var/www
 ENV APP_NAME WebMProcessor
@@ -9,7 +9,7 @@ ENV APP_PATH $APP_ROOT/$APP_NAME
 
 # add a deploy user and set a password
 RUN useradd -d /home/deploy -m -s /bin/bash deploy
-RUN echo 'deploy:q00iwrij' | chpasswd
+# RUN echo 'deploy:q00iwrij' | chpasswd
 
 # create deploy folder and copy code
 RUN mkdir -p $APP_PATH
@@ -18,10 +18,6 @@ RUN chown -R deploy:deploy $APP_PATH
 
 # update aptitude
 RUN apt-get -y update
-
-# install sshd
-RUN apt-get install -y openssh-server
-RUN mkdir -p /var/run/sshd && chown deploy:deploy /var/run/sshd
 
 # install git
 RUN apt-get install -y git-core
@@ -73,4 +69,4 @@ RUN bundle install --gemfile=$APP_PATH/Gemfile
 # RUN cd $APP_PATH && rake db:migrate
 
 # return the foreman process command to start everything
-CMD ["foreman", "start", "-d", "$APP_PATH", "-f", "Procfile.production"]
+# CMD ["foreman", "start", "-d", "$APP_PATH", "-f", "Procfile.production"]
