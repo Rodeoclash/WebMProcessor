@@ -4,7 +4,7 @@
 #
 # The default is the current directory.
 #
-directory application_path
+directory ENV['APP_PATH']
 
 # Use an object or block as the rack application. This allows the
 # config file to be the application itself.
@@ -22,6 +22,7 @@ directory application_path
 # The default is “config.ru”.
 #
 # rackup '/u/apps/lolcat/config.ru'
+rackup "#{ENV['APP_PATH']}/config.ru"
 
 # Set the environment in which the rack's app will run. The value must be a string.
 #
@@ -33,24 +34,20 @@ environment ENV['RAILS_ENV']
 # this be combined with “pidfile” and “stdout_redirect”.
 #
 # The default is “false”.
-#
-# daemonize
 daemonize false
 
 # Store the pid of the server in the file at “path”.
 #
-pidfile "#{application_path}/tmp/pids/puma-#{railsenv}.pid"
+pidfile "#{ENV['APP_PATH']}/tmp/pids/puma-#{ENV['RAILS_ENV']}.pid"
 
 # Use “path” as the file to store the server info state. This is
 # used by “pumactl” to query and control the server.
-#
-state_path "#{application_path}/tmp/pids/puma-#{railsenv}.state"
+state_path "#{ENV['APP_PATH']}/tmp/pids/puma-#{ENV['RAILS_ENV']}.state"
 
 # Redirect STDOUT and STDERR to files specified. The 3rd parameter
 # (“append”) specifies whether the output is appended, the default is
 # “false”.
-#
-stdout_redirect "#{application_path}/log/puma-#{railsenv}.stdout.log"
+stdout_redirect "#{ENV['APP_PATH']}/log/puma-#{ENV['RAILS_ENV']}.stdout.log"
 
 # Disable request logging.
 #
@@ -74,7 +71,7 @@ threads 0, 16
 # bind 'unix:///var/run/puma.sock'
 # bind 'unix:///var/run/puma.sock?umask=0777'
 # bind 'ssl://127.0.0.1:9292?key=path_to_key&cert=path_to_cert'
-bind "unix://#{application_path}/tmp/sockets/#{railsenv}.socket"
+bind "unix://#{ENV['APP_PATH']}/tmp/sockets/#{ENV['RAILS_ENV']}.socket"
 
 # Instead of “bind 'ssl://127.0.0.1:9292?key=path_to_key&cert=path_to_cert'” you
 # can also use the “ssl_bind” option.

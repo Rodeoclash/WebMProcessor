@@ -7,9 +7,8 @@ ENV APP_ROOT /var/www
 ENV APP_NAME WebMProcessor
 ENV APP_PATH $APP_ROOT/$APP_NAME
 
-# add a deploy user and set a password
+# add a deploy user
 RUN useradd -d /home/deploy -m -s /bin/bash deploy
-# RUN echo 'deploy:q00iwrij' | chpasswd
 
 # create deploy folder and copy code
 RUN mkdir -p $APP_PATH
@@ -25,11 +24,11 @@ RUN apt-get install -y git-core
 # install mysql
 RUN apt-get install -y libmysql-ruby libmysqlclient-dev
 
-# install nginx
-RUN apt-get install -y nginx
-
-# redirect port 80 to port 8000 for nginx
-iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8000
+# install nginx and authbind to it can bind to port 80
+RUN apt-get install -y nginx authbind
+RUN touch /etc/authbind/byport/80
+RUN chmod 500 /etc/authbind/byport/80
+RUN chown deploy /etc/authbind/byport/80
 
 # setup nginx folders
 RUN mkdir -p /var/lib/nginx && chown deploy:deploy /var/lib/nginx
@@ -56,17 +55,12 @@ ENV RAILS_ENV production
 # don't install rdocs by default
 RUN echo "gem: --no-ri --no-rdoc" > /home/deploy/.gemrc
 
-# setup tmp folders
-#RUN mkdir -p $APP_PATH/tmp/pids
-#RUN mkdir -p $APP_PATH/tmp/sockets
-#RUN mkdir -p $APP_PATH/tmp/logs
-
 # install gems for project
 RUN cd $APP_PATH && gem install bundler
-RUN bundle install --gemfile=$APP_PATH/Gemfile
+RUN bundle install --gemfile $APP_PATH/Gemfile
 
 # migrate database
-# RUN cd $APP_PATH && rake db:migrate
+RUN cd $APP_PATH && foreman run rake db:migrate
 
 # return the foreman process command to start everything
-# CMD ["foreman", "start", "-d", "$APP_PATH", "-f", "Procfile.production"]
+CMD ["foreman", "start", "-d", "/var/www/WebMProcessor", "-f", "/var/www/WebMProcessor/Procfile.production", "-e", "/var/www/WebMProcessor/.env.production"]
