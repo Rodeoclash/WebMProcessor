@@ -1,6 +1,6 @@
 GIT
-  remote: git@github.com:Rodeoclash/carrierwave_direct.git
-  revision: b042a48753054d45018940c7c00e16809a33ee59
+  remote: https://github.com/Rodeoclash/carrierwave_direct.git
+  revision: cefde1adc4b2a5c9253e0735307ee4a71be79fb0
   specs:
     carrierwave_direct (0.0.14)
       carrierwave

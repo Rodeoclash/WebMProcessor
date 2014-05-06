@@ -60,7 +60,7 @@ RUN cd $APP_PATH && gem install bundler
 RUN bundle install --gemfile $APP_PATH/Gemfile
 
 # migrate database
-RUN cd $APP_PATH && foreman run rake db:migrate
+RUN cd $APP_PATH && foreman run -d /var/www/WebMProcessor -e /var/www/WebMProcessor/.env.production rake db:migrate
 
 # return the foreman process command to start everything
 CMD ["foreman", "start", "-d", "/var/www/WebMProcessor", "-f", "/var/www/WebMProcessor/Procfile.production", "-e", "/var/www/WebMProcessor/.env.production"]

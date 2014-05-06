@@ -5,7 +5,7 @@ gem 'mysql'
 gem 'default_value_for', '~> 3.0.0'
 gem 'streamio-ffmpeg'
 gem 'carrierwave'
-gem 'carrierwave_direct'
+gem 'carrierwave_direct', :git => "https://github.com/Rodeoclash/carrierwave_direct.git"
 gem 'unf'
 gem 'fog'
 gem 'firebase'
