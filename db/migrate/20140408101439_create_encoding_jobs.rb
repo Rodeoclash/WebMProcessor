@@ -7,13 +7,10 @@ class CreateEncodingJobs < ActiveRecord::Migration
       t.integer :frame_rate
       t.string :resolution
       t.integer :video_bitrate
-      t.integer :video_max_bitrate
-      t.integer :video_min_bitrate
       t.string :audio_codec
       t.integer :audio_bitrate
       t.integer :audio_sample_rate
       t.integer :audio_channels
-      t.integer :buffer_size
       t.integer :video_bitrate_tolerance
       t.integer :threads
       t.integer :duration
