@@ -1,7 +1,34 @@
-.directive_wp_upload_movie {
+.directive_wp_encoding_job_upload_movie {
+	margin: 40px;
 
-	.highlight-drop {
-		background: #fcf;
+	.upload_target, .upload_progress, .upload_control {
+		background: #eee;
+		width: 75%;
+		margin: 0 auto;
+		padding: 20px;
+		border-radius: 5px;
+		text-align: center;
+
+		.upload_icon {
+			font-size: 64px;
+			color: #666;
+		}
+
+		p.instructions {
+			margin-bottom: 0;
+			font-weight: bold;
+		}
+
+	}
+
+	.upload_target.highlight_drop_target {
+		background: #ddd;
+
+		.upload_icon {
+			font-size: 64px;
+			color: #333;
+		}
+
 	}
 
 }

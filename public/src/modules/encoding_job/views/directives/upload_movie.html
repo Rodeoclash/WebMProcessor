@@ -2,21 +2,33 @@
 
 	<!-- if we're not uploading and haven't uploaded already -->
 	<div ng:show="isNotUploaded()">
-		<div class="well" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="highlight-drop">
-			<p>Drag and drop movie here (sized between {{min_filesize}} and {{max_filesize}})</p>
+		<div class="upload_target" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="highlight_drop_target">
+			<div class="upload_icon"><span class="glyphicon glyphicon-cloud-upload"></span></div>
+			<p class="instructions">Drag and drop movie here (sized between {{min_filesize}} and {{max_filesize}})</p>
 		</div>
 	</div>
 
 	<!-- if we're in the process of uploading to S3 -->
 	<div ng:show="isUploading()">
-		<div ng-show="percent_uploaded == 0"><busy-indicator>Preparing upload</busy-indicator></div>
-		<div ng-show="percent_uploaded > 0"><progressbar class="progress-striped" value="percent_uploaded">{{percent_uploaded}}%</progressbar></div>
+		<div class="upload_progress">
+			<div ng-show="percent_uploaded == 0">
+				<busy-indicator>
+					<p class="instructions">Preparing upload...</p>
+				</busy-indicator>
+			</div>
+			<div ng-show="percent_uploaded > 0">
+				<progressbar class="progress-striped" value="percent_uploaded">{{percent_uploaded}}%</progressbar>
+				<p class="instructions">Uploading now...</p>
+			</div>
+		</div>
 	</div>
 
 	<!-- if the upload is finished -->
 	<div ng:show="isUploaded()">
-		<p>Uploaded!</p>
-		<button class="btn btn-danger" ng-click="removeMovie()">Remove movie</button>
+		<div class="upload_control">
+			<p>Uploaded!</p>
+			<button class="btn btn-danger" ng-click="removeMovie()">Remove movie</button>
+		</div>
 	</div>
 
 </div>

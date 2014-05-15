@@ -49,7 +49,7 @@ angular.module('wpEncodingJob')
 					scope.encoding_job.s3_response = data
 
 				).error( (data, status, headers, config) ->
-					console.warn(data, status)
+					alert('Error trying to upload video! Please try again soon')
 				)
 				
 			scope.isNotUploaded = () ->

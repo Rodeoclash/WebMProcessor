@@ -2458,8 +2458,8 @@ input[type="button"].btn-block {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.eot");
-  src: url("bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.woff") format("woff"), url("bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+  src: url("fonts/glyphicons-halflings-regular.eot");
+  src: url("fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("fonts/glyphicons-halflings-regular.woff") format("woff"), url("fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 
 /* line 21, ../src/bower_components/sass-bootstrap/lib/_glyphicons.scss */
 .glyphicon {
@@ -6290,6 +6290,16 @@ td.visible-print {
 
 /* module: encoding job */
 /* line 3, ../src/modules/encoding_job/styles/pages/index.scss */
+.page_encoding_job_index .content {
+  text-align: center; }
+/* line 7, ../src/modules/encoding_job/styles/pages/index.scss */
+.page_encoding_job_index .controls_and_validation {
+  text-align: left; }
+/* line 11, ../src/modules/encoding_job/styles/pages/index.scss */
+.page_encoding_job_index .form_errors {
+  color: #cc0000;
+  font-weight: bold; }
+/* line 16, ../src/modules/encoding_job/styles/pages/index.scss */
 .page_encoding_job_index .save_indicator {
   position: fixed;
   right: 20px;
@@ -6302,21 +6312,48 @@ td.visible-print {
   box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.33);
   border: 1px solid #ccc;
   opacity: 0; }
-  /* line 16, ../src/modules/encoding_job/styles/pages/index.scss */
+  /* line 29, ../src/modules/encoding_job/styles/pages/index.scss */
   .page_encoding_job_index .save_indicator.save_in_progress {
     opacity: 1; }
 
-/* line 3, ../src/modules/encoding_job/styles/directives/upload_movie.scss */
-.directive_wp_upload_movie .highlight-drop {
-  background: #fcf; }
+/* line 1, ../src/modules/encoding_job/styles/directives/upload_movie.scss */
+.directive_wp_encoding_job_upload_movie {
+  margin: 40px; }
+  /* line 4, ../src/modules/encoding_job/styles/directives/upload_movie.scss */
+  .directive_wp_encoding_job_upload_movie .upload_target, .directive_wp_encoding_job_upload_movie .upload_progress, .directive_wp_encoding_job_upload_movie .upload_control {
+    background: #eee;
+    width: 75%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center; }
+    /* line 12, ../src/modules/encoding_job/styles/directives/upload_movie.scss */
+    .directive_wp_encoding_job_upload_movie .upload_target .upload_icon, .directive_wp_encoding_job_upload_movie .upload_progress .upload_icon, .directive_wp_encoding_job_upload_movie .upload_control .upload_icon {
+      font-size: 64px;
+      color: #666; }
+    /* line 17, ../src/modules/encoding_job/styles/directives/upload_movie.scss */
+    .directive_wp_encoding_job_upload_movie .upload_target p.instructions, .directive_wp_encoding_job_upload_movie .upload_progress p.instructions, .directive_wp_encoding_job_upload_movie .upload_control p.instructions {
+      margin-bottom: 0;
+      font-weight: bold; }
+  /* line 24, ../src/modules/encoding_job/styles/directives/upload_movie.scss */
+  .directive_wp_encoding_job_upload_movie .upload_target.highlight_drop_target {
+    background: #ddd; }
+    /* line 27, ../src/modules/encoding_job/styles/directives/upload_movie.scss */
+    .directive_wp_encoding_job_upload_movie .upload_target.highlight_drop_target .upload_icon {
+      font-size: 64px;
+      color: #333; }
+
+/* line 1, ../src/modules/encoding_job/styles/directives/form.scss */
+.directive_wp_encoding_job_form {
+  text-align: left; }
 
 /* Space out content a bit */
-/* line 12, ../src/stylesheet.scss */
+/* line 13, ../src/stylesheet.scss */
 body {
   padding-top: 20px;
   padding-bottom: 20px; }
 
-/* line 17, ../src/stylesheet.scss */
+/* line 18, ../src/stylesheet.scss */
 .animated {
   -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
   transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s; }

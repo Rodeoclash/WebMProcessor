@@ -1,4 +1,4 @@
-$icon-font-path: "bower_components/sass-bootstrap/fonts/";
+$icon-font-path: "fonts/";
 @import 'bower_components/sass-bootstrap/lib/bootstrap';
 
 /* module: main */
@@ -7,6 +7,7 @@ $icon-font-path: "bower_components/sass-bootstrap/fonts/";
 /* module: encoding job */
 @import 'modules/encoding_job/styles/pages/index';
 @import 'modules/encoding_job/styles/directives/upload_movie';
+@import 'modules/encoding_job/styles/directives/form';
 
 /* Space out content a bit */
 body {

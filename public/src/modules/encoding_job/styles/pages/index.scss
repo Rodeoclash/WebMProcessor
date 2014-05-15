@@ -1,5 +1,18 @@
 .page_encoding_job_index {
 
+	.content {
+		text-align: center;
+	}
+
+	.controls_and_validation {
+		text-align: left;
+	}
+
+	.form_errors {
+		color: #cc0000;
+		font-weight: bold;
+	}
+
 	.save_indicator {
 		position: fixed;
 		right: 20px;
