@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('wpEncodingJob')
-	.service 'ResourceEncodingJobs', (
+	.service 'EncodingJobsModel', (
 		API_ROOT
 		API_FORMAT
 		$resource

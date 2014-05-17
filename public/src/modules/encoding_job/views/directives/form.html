@@ -1,7 +1,7 @@
 <div class="directive directive_wp_form directive_wp_encoding_job_form">
 	<form role="form" name="form">
 		
-		<bootstrap:form:group for="frame_rate" label="Framerate" help="This should match the original framerate of the video you're uploading">
+		<bootstrap:form:group for="frame_rate" label="Framerate" help="This should match the original framerate of the video you're uploading.">
 			<input id="frame_rate" class="form-control" type="number" ng:model="model.frame_rate" name="frame_rate" placeholder="24, 30, 48, 60 etc (min: {{settings.MIN_FRAME_RATE}}, max: {{settings.MAX_FRAME_RATE}})" ng-minlength="{{settings.MIN_FRAME_RATE}}" ng-maxlength="{{settings.MAX_FRAME_RATE}}" required>
 		</bootstrap:form:group>
 
@@ -23,7 +23,7 @@
 			<input id="keyframe_interval" class="form-control" type="number" ng:model="model.keyframe_interval" name="keyframe_interval" placeholder="(min: {{settings.MIN_KEYFRAME_INTERVAL}}, max: {{settings.MAX_KEYFRAME_INTERVAL}})" ng-minlength="{{settings.MIN_KEYFRAME_INTERVAL}}" ng-maxlength="{{settings.MAX_KEYFRAME_INTERVAL}}" required>
 		</bootstrap:form:group>
 
-		<bootstrap:form:group for="seek_time" label="Start from" help="Where to start encoding from, in seconds">
+		<bootstrap:form:group for="seek_time" label="Start from" help="Where to start encoding from, in seconds.">
 			<input id="seek_time" class="form-control" type="number" ng:model="model.seek_time" name="seek_time" placeholder="In seconds">
 		</bootstrap:form:group>
 

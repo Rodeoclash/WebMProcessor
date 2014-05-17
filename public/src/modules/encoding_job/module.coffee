@@ -6,8 +6,8 @@ angular.module('wpEncodingJob', [
 ])
 	.config () ->
 
-require './services/resource_encoding_jobs'
-require './controllers/index'
+require './services/model'
+require './controllers/new'
 require './controllers/show'
 require './controllers/modals/confirm_job'
 require './directives/form'

@@ -41,7 +41,8 @@ angular.module('wpMain', [
 		# route configuration
 		$routeProvider
 
-			# homepage
+			## Main ##
+
 			.when '/',
 				templateUrl: "main/views/pages/index.html"
 				controller: "MainIndexCtrl"
@@ -50,16 +51,16 @@ angular.module('wpMain', [
 						Settings.$promise
 				}
 
-			# encoding job home
-			.when '/encoding_job',
-				templateUrl: "encoding_job/views/pages/index.html"
-				controller: "EndcodingJobIndexCtrl"
+			## Encoding jobs ##
+
+			.when '/encoding_job/new',
+				templateUrl: "encoding_job/views/pages/new.html"
+				controller: "EndcodingJobNewCtrl"
 				resolve: {
 					settings: (Settings) ->
 						Settings.$promise
 				}
 
-			# encoding job show
 			.when '/encoding_job/:uuid/show',
 				templateUrl: "encoding_job/views/pages/show.html"
 				controller: "EndcodingJobShowCtrl"
@@ -71,6 +72,8 @@ angular.module('wpMain', [
 require './services/interceptor_api_error'
 require './services/settings'
 require './services/notifications'
+require './controllers/index'
 require './directives/bootstrap_form_group'
 require './directives/busy_indicator'
 require './directives/notifications'
+require './directives/server_sync'

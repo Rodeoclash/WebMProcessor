@@ -8,7 +8,6 @@ angular.module('wpEncodingJob')
 	.directive('wpEncodingJobUploadMovie', (
 		$upload
 		Settings
-		ResourceEncodingJobs
 	) ->
 		templateUrl: "encoding_job/views/directives/upload_movie.html"
 		restrict: 'E'
@@ -29,6 +28,8 @@ angular.module('wpEncodingJob')
 			scope.onFileSelect = ($files) ->
 				scope.percent_uploaded = 0
 
+				scope.encoding_job.uploading_to_server = true
+
 				scope.upload = $upload.upload(
 					url: scope.encoding_job.s3_settings.url
 					method: 'POST'
@@ -47,9 +48,11 @@ angular.module('wpEncodingJob')
 				).success( (data, status, headers, config) ->
 					scope.percent_uploaded = 100
 					scope.encoding_job.s3_response = data
+					scope.encoding_job.uploading_to_server = false
 
 				).error( (data, status, headers, config) ->
 					alert('Error trying to upload video! Please try again soon')
+					scope.encoding_job.uploading_to_server = false
 				)
 				
 			scope.isNotUploaded = () ->
