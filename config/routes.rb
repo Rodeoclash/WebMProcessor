@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 WebMProcessor::Application.routes.draw do
   namespace :api do
     namespace :v1 do
@@ -5,4 +7,6 @@ WebMProcessor::Application.routes.draw do
       resources :encoding_jobs
     end
   end
+
+  mount Sidekiq::Web => '/sidekiq'
 end
