@@ -4997,6 +4997,9 @@ td.visible-print {
     margin-bottom: 0; }
 
 /* module: encoding job */
+.page_encoding_job_new .form_errors {
+  color: #cc0000; }
+
 .directive_wp_encoding_job_upload_movie {
   margin: 40px; }
   .directive_wp_encoding_job_upload_movie .upload_target, .directive_wp_encoding_job_upload_movie .upload_progress, .directive_wp_encoding_job_upload_movie .upload_control {

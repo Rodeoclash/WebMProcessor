@@ -6,6 +6,7 @@ $icon-font-path: "fonts/";
 @import 'modules/main/styles/directives/notifications';
 
 /* module: encoding job */
+@import 'modules/encoding_job/styles/pages/new';
 @import 'modules/encoding_job/styles/directives/upload_movie';
 
 /* Space out content a bit */
