@@ -6,10 +6,10 @@ angular.module('wpEncodingJob')
 	.controller 'EndcodingJobModalConfirmJob', (
 		$scope
 		$modalInstance
-		encoding_job
+		encodingJob
 	) ->
 
-		$scope.encoding_job = encoding_job
+		$scope.encodingJob = encodingJob
 
 		$scope.cancel = () ->
 			$modalInstance.dismiss()

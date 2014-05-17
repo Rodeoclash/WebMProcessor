@@ -10,17 +10,17 @@
 		<div ng-if="!busy()">
 			<h2>Job details</h2>
 
-			<wp-server-sync model="encoding_job"></wp-server-sync>
-			<wp-encoding-job-upload-movie encoding-job="encoding_job"></wp-encoding-job-upload-movie>
-			<wp-encoding-job-form model="encoding_job"></wp-encoding-job-form>
+			<wp-server-sync model="encodingJob"></wp-server-sync>
+			<wp-encoding-job-upload-movie encoding-job="encodingJob"></wp-encoding-job-upload-movie>
+			<wp-encoding-job-form model="encodingJob"></wp-encoding-job-form>
 
 			<div class="controls_and_validation">
 				<button type="submit" class="btn btn-default" ng-click="startEncoding()" ng-disabled="formInvalid()">Start encoding</button>
 				<p>
 					<ul class="form_errors">
-						<li ng-show="!encoding_job.s3_response && !encoding_job.uploading_to_server">Please upload a movie</li>
+						<li ng-show="!encodingJob.s3_response && !encodingJob.uploading_to_server">Please upload a movie</li>
 						<li ng-show="!form_valid">Please make sure the form is valid</li>
-						<li ng-show="encoding_job.uploading_to_server && !encoding_job.s3_response">Please wait for the video upload to finish</li>
+						<li ng-show="encodingJob.uploading_to_server && !encodingJob.s3_response">Please wait for the video upload to finish</li>
 					</ul>
 				</p>
 			</div>

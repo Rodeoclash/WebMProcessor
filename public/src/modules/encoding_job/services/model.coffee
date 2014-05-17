@@ -15,4 +15,7 @@ angular.module('wpEncodingJob')
 
 			get: (options) ->
 				resource.get({uuid: options.uuid}).$promise
+
+			resolution: (model) ->
+				model.resolution.split('x')
 		}

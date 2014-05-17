@@ -1,9 +1,9 @@
 'use strict'
 
 angular.module('wpEncodingJob')
-	.directive('wpEncodingJobDownload', (
+	.directive('wpEncodingJobDetails', (
 	) ->
-		templateUrl: "encoding_job/views/directives/download.html"
+		templateUrl: "encoding_job/views/directives/details.html"
 		restrict: 'E'
 		scope: {
 			encodingJob: "="

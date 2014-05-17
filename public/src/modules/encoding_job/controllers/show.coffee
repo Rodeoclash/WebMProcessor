@@ -8,7 +8,7 @@ angular.module('wpEncodingJob')
 		$routeParams
 		$location
 		$firebase
-		ResourceEncodingJobs
+		EncodingJobsModel
 		settings
 	) ->
 
@@ -16,20 +16,20 @@ angular.module('wpEncodingJob')
 		has_fetched_details = false
 
 		$scope.navigation = {}
-		$scope.status = $firebase(ref)
+		$scope.firebase = $firebase(ref)
 
 		$scope.hasStatus = () ->
-			$scope.status? && $scope.status.status?
+			$scope.firebase? && $scope.firebase.status?
 
 		$scope.hasEncodingJob = () ->
-			$scope.encoding_job?
+			$scope.encodingJob?
 
 		$scope.navigation.encodeAnotherVideo = () ->
 			$location.path('/encoding_job')
 
-		$scope.$watch('status.ready_for_download', (v) ->
+		$scope.$watch('firebase.ready_for_download', (v) ->
 			if v == true && has_fetched_details == false
 				has_fetched_details = true
-				ResourceEncodingJobs.get({uuid: $routeParams.uuid}).then (response) ->
-					$scope.encoding_job = response
+				EncodingJobsModel.get({uuid: $routeParams.uuid}).then (response) ->
+					$scope.encodingJob = response
 		)
