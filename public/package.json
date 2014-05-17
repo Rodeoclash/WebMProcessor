@@ -39,12 +39,14 @@
     "connect": "~2.14.3",
     "gulp": "~3.6.0",
     "gulp-angular-templatecache": "^1.1.2",
+    "gulp-autoprefixer": "0.0.7",
     "gulp-changed": "~0.3.0",
     "gulp-compass": "~1.1.8",
     "gulp-imagemin": "~0.1.5",
     "gulp-livereload": "~1.2.0",
     "gulp-notify": "~1.2.4",
     "gulp-open": "~0.2.8",
+    "gulp-ruby-sass": "^0.5.0",
     "vinyl-source-stream": "~0.1.1"
   },
   "dependencies": {

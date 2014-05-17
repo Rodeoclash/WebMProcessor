@@ -1,12 +1,13 @@
 var gulp = require('gulp');
 var open = require("gulp-open");
+var config = require('../config');
 
-module.exports = function() {
+gulp.task('open', ['build'], function() {
 
 	var options = {
-		url: "http://localhost:8080",
+		url: "http://localhost:" + config.port,
 		app: "google chrome"
 	};
 
 	return gulp.src("./index.html").pipe(open("", options));
-};
+});

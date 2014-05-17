@@ -1,21 +1,15 @@
-var browserify = require('browserify');
-var gulp = require('gulp');
-var livereload = require('gulp-livereload');
-var notify = require("gulp-notify");
-var source = require('vinyl-source-stream');
+var browserify   = require('browserify');
+var gulp         = require('gulp');
+var handleErrors = require('../util/handleErrors');
+var source       = require('vinyl-source-stream');
 
-module.exports = function() {
+gulp.task('browserify', function(){
 	return browserify({
 			entries: ['./src/javascript.coffee'],
 			extensions: ['.coffee']
 		})
-		//.require('backbone/node_modules/underscore', { expose: 'underscore' })
 		.bundle({debug: true})
-		.on('error', notify.onError({
-			message: "<%= error.message %>",
-			title: "JavaScript Error"
-		}))
+		.on('error', handleErrors)
 		.pipe(source('javascript.js'))
-		.pipe(gulp.dest('./build/'))
-		.pipe(livereload());
-};
+		.pipe(gulp.dest('./build/'));
+});

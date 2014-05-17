@@ -16,6 +16,7 @@ gem 'sidekiq'
 gem 'sinatra', '>= 1.3.0', :require => nil
 gem 'foreman'
 gem 'puma'
+gem 'sass'
 
 group :doc do
   gem 'sdoc', require: false

@@ -1,9 +1,7 @@
-var gulp = require('gulp');
-var livereload = require('gulp-livereload');
-var notify = require("gulp-notify");
+var gulp       = require('gulp');
 var templateCache = require("gulp-angular-templatecache");
 
-module.exports = function() {
+gulp.task('templates', function() {
 	var dest = './build';
 
 	return gulp.src('./src/modules/**/*.html')
@@ -11,9 +9,4 @@ module.exports = function() {
         	standalone: true
         }))
         .pipe(gulp.dest(dest))
-		.on('error', notify.onError({
-			message: "<%= error.message %>",
-			title: "Templates Error"
-		}))
-        .pipe(livereload());
-};
+});

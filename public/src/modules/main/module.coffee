@@ -41,6 +41,15 @@ angular.module('wpMain', [
 		# route configuration
 		$routeProvider
 
+			# homepage
+			.when '/',
+				templateUrl: "main/views/pages/index.html"
+				controller: "MainIndexCtrl"
+				resolve: {
+					settings: (Settings) ->
+						Settings.$promise
+				}
+
 			# encoding job home
 			.when '/encoding_job',
 				templateUrl: "encoding_job/views/pages/index.html"
@@ -58,11 +67,6 @@ angular.module('wpMain', [
 					settings: (Settings) ->
 						Settings.$promise
 				}
-
-
-			# redirect to encoding job index
-			.otherwise
-				redirectTo: '/encoding_job'
 
 require './services/interceptor_api_error'
 require './services/settings'
