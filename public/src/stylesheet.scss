@@ -5,17 +5,10 @@ $icon-font-path: "fonts/";
 @import 'modules/main/styles/directives/notifications';
 
 /* module: encoding job */
-@import 'modules/encoding_job/styles/pages/index';
 @import 'modules/encoding_job/styles/directives/upload_movie';
-@import 'modules/encoding_job/styles/directives/form';
 
 /* Space out content a bit */
 body {
     padding-top: 20px;
     padding-bottom: 20px;
-}
-
-.animated {
-  -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }

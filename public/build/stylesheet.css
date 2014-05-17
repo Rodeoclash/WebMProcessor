@@ -4994,29 +4994,6 @@ td.visible-print {
     margin-bottom: 0; }
 
 /* module: encoding job */
-.page_encoding_job_index .content {
-  text-align: center; }
-.page_encoding_job_index .controls_and_validation {
-  text-align: left; }
-.page_encoding_job_index .form_errors {
-  color: #cc0000;
-  font-weight: bold; }
-.page_encoding_job_index .save_indicator {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  background: #eee;
-  border: 1px solid #eee;
-  padding: 10px 20px;
-  text-align: center;
-  line-height: 20px;
-  -webkit-box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.33);
-  box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.33);
-  border: 1px solid #ccc;
-  opacity: 0; }
-  .page_encoding_job_index .save_indicator.save_in_progress {
-    opacity: 1; }
-
 .directive_wp_encoding_job_upload_movie {
   margin: 40px; }
   .directive_wp_encoding_job_upload_movie .upload_target, .directive_wp_encoding_job_upload_movie .upload_progress, .directive_wp_encoding_job_upload_movie .upload_control {
@@ -5038,14 +5015,7 @@ td.visible-print {
       font-size: 64px;
       color: #333; }
 
-.directive_wp_encoding_job_form {
-  text-align: left; }
-
 /* Space out content a bit */
 body {
   padding-top: 20px;
   padding-bottom: 20px; }
-
-.animated {
-  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
-  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s; }
