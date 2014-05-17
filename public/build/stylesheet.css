@@ -4985,6 +4985,9 @@ td.visible-print {
   td.hidden-print {
     display: none !important; } }
 /* module: main */
+.page_main_index {
+  text-align: center; }
+
 .directive_notifications {
   position: fixed;
   bottom: 0;
@@ -5019,3 +5022,9 @@ td.visible-print {
 body {
   padding-top: 20px;
   padding-bottom: 20px; }
+
+#title {
+  text-align: center; }
+  #title img {
+    display: block;
+    margin: 0 auto; }

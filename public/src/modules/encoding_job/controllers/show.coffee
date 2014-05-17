@@ -25,7 +25,7 @@ angular.module('wpEncodingJob')
 			$scope.encodingJob?
 
 		$scope.navigation.encodeAnotherVideo = () ->
-			$location.path('/encoding_job')
+			$location.path('/encoding_job/new')
 
 		$scope.$watch('firebase.ready_for_download', (v) ->
 			if v == true && has_fetched_details == false

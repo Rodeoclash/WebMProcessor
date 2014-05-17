@@ -2,6 +2,8 @@ class PerformTranscode
   include Sidekiq::Worker
 
   def perform(encoding_job_id)
+
+    # hacky, ensure that the item is in the database
     sleep 2
 
     encoding_job = EncodingJob.find(encoding_job_id)

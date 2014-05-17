@@ -2,6 +2,7 @@ $icon-font-path: "fonts/";
 @import 'bower_components/sass-bootstrap/lib/bootstrap';
 
 /* module: main */
+@import 'modules/main/styles/pages/index';
 @import 'modules/main/styles/directives/notifications';
 
 /* module: encoding job */
@@ -11,4 +12,12 @@ $icon-font-path: "fonts/";
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+#title {
+	text-align: center;
+	img {
+		display: block;
+		margin: 0 auto;
+	}
 }
