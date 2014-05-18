@@ -17,7 +17,6 @@ class PerformTranscode
 
     # download the file from S3 and kick of the processing of it
     encoding_job.remote_movie_url = encoding_job.movie.direct_fog_url + Hash.from_xml(encoding_job.s3_response)["PostResponse"]["Key"]
-
     encoding_job.save
 
     encoding_job.firebase_progress.update({

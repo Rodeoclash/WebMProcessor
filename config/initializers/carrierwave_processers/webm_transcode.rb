@@ -19,10 +19,10 @@ module CarrierwaveProcessers
 					# perform the transcode into the temporary files location
 					movie.transcode(transcoded_file, model.encoding_options) {|progress|
 						model.firebase_progress.update({
-						progress_percentage: progress,
-						status: "Transcoding video to WebM",
-						ready_for_download: false,
-						error_with_transcoding: false
+							progress_percentage: progress,
+							status: "Transcoding video to WebM",
+							ready_for_download: false,
+							error_with_transcoding: false
 						})
 					}
 
@@ -30,10 +30,10 @@ module CarrierwaveProcessers
 					FileUtils.mv(transcoded_file, current_path)
 
 					model.firebase_progress.update({
-					progress_percentage: 100,
-					status: "Video being transferred back to S3",
-					ready_for_download: false,
-					error_with_transcoding: false
+						progress_percentage: 100,
+						status: "Saving data...",
+						ready_for_download: false,
+						error_with_transcoding: false
 					})
 
 					current_path
@@ -41,10 +41,10 @@ module CarrierwaveProcessers
 
 			rescue Exception => e
 				model.firebase_progress.update({
-				progress_percentage: 100,
-				status: "There was a problem transcoding your video",
-				ready_for_download: false,
-				error_with_transcoding: true
+					progress_percentage: 100,
+					status: "There was a problem transcoding your video",
+					ready_for_download: false,
+					error_with_transcoding: true
 				})
 				raise e
 			end

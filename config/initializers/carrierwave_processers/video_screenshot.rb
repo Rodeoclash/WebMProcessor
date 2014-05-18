@@ -16,6 +16,13 @@ module CarrierwaveProcessers
 				with_temp_filepath do |temp_path|
 					screenshot_file = "#{temp_path}.jpg"
 
+					model.firebase_progress.update({
+						progress_percentage: 0,
+						status: "Creating screenshot of video",
+						ready_for_download: false,
+						error_with_transcoding: false
+					})
+
 					# get the screenshot
 					movie.screenshot(screenshot_file, model.screenshot_options)
 
@@ -24,7 +31,7 @@ module CarrierwaveProcessers
 
 					model.firebase_progress.update({
 						progress_percentage: 100,
-						status: "Screenshot being transferred back to S3",
+						status: "Saving data...",
 						ready_for_download: false,
 						error_with_transcoding: false
 					})
@@ -35,7 +42,7 @@ module CarrierwaveProcessers
 			rescue Exception => e
 				model.firebase_progress.update({
 					progress_percentage: 100,
-					status: "There was a problem taking a screenshot your movie",
+					status: "There was a problem taking a screenshot your video",
 					ready_for_download: false,
 					error_with_transcoding: true
 				})
