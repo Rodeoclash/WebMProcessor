@@ -10,7 +10,7 @@ class PerformTranscode
 
     encoding_job.firebase_progress.update({
       progress_percentage: 0,
-      status: "Downloading your video from S3 (this might take a while...)",
+      status: "Downloading your video for processing...",
       ready_for_download: false,
       error_with_transcoding: false
     })

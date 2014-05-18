@@ -72,13 +72,13 @@ class EncodingJob < ActiveRecord::Base
 
 		def start_transcode
 			if ready_for_transcode?
+				self.queue_job_id = PerformTranscode.perform_async(self.id)
 				self.firebase_progress.update({
 					progress_percentage: 0,
-					status: "Placing your movie into the transcoding queue",
+					status: "Video placed in transcoding queue, this might take a while so check back soon...",
 					ready_for_download: false,
 					error_with_transcoding: false
 				})
-				self.queue_job_id = PerformTranscode.perform_async(self.id)
 			end
 		end
 
