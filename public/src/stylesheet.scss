@@ -1,18 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
 $icon-font-path: "fonts/";
 @import 'bower_components/sass-bootstrap/lib/bootstrap';
 
 /* module: main */
 @import 'modules/main/styles/pages/index';
 @import 'modules/main/styles/directives/notifications';
+@import 'modules/main/styles/directives/busy_indicator';
 
 /* module: encoding job */
 @import 'modules/encoding_job/styles/pages/new';
+@import 'modules/encoding_job/styles/pages/show';
 @import 'modules/encoding_job/styles/directives/upload_movie';
+@import 'modules/encoding_job/styles/directives/status';
+@import 'modules/encoding_job/styles/directives/player';
 
 /* Space out content a bit */
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+h1, h2, h3, h4, h5, p {
+	font-family: 'PT Sans', sans-serif;
 }
 
 #title {
@@ -21,4 +30,7 @@ body {
 		display: block;
 		margin: 0 auto;
 	}
+	margin-bottom: 20px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 20px;
 }

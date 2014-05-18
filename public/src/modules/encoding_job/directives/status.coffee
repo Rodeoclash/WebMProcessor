@@ -6,7 +6,7 @@ angular.module('wpEncodingJob')
 		templateUrl: "encoding_job/views/directives/status.html"
 		restrict: 'E'
 		scope: {
-			status: "="
+			firebase: "="
 		}
 		link: (scope, element, attrs) ->
 			

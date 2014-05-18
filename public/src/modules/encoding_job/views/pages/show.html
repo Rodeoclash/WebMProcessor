@@ -1,18 +1,21 @@
-<a ng-click="navigation.encodeAnotherVideo()" class="btn btn-default">Encode another video</a>
-
-<h3>Your Video <small>{{encodingJob.uuid}}</small></h3>
-
 <div ng:if="!hasStatus()">
 	<busy-indicator>Fetching video encoding status...</busy-indicator>
 </div>
 
 <div ng:if="hasStatus()">
-	<wp-encoding-job-status status="firebase"></wp-encoding-job-status>
+	<wp-encoding-job-status firebase="firebase"></wp-encoding-job-status>
 </div>
 
 <!-- shown when job is finished -->
 <div ng:if="hasEncodingJob()">
+
+	<h3>Video details</h3>
 	<wp-encoding-job-details encoding-job="encodingJob"></wp-encoding-job-details>
-	<wp-encoding-job-player encoding-job="encodingJob"></wp-encoding-job-player>
+
+	<h3>Download video</h3>
 	<wp-encoding-job-download encoding-job="encodingJob"></wp-encoding-job-download>
+
+	<h3>Play video</h3>
+	<wp-encoding-job-player encoding-job="encodingJob"></wp-encoding-job-player>
+
 </div>

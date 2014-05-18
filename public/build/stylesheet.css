@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 article,
 aside,
@@ -4996,7 +4997,17 @@ td.visible-print {
   .directive_notifications .alert {
     margin-bottom: 0; }
 
+.directive_busy_indicator {
+  text-align: center;
+  font-style: italic;
+  color: #999; }
+  .directive_busy_indicator div {
+    margin: 20px auto; }
+
 /* module: encoding job */
+.page_encoding_job_new .form_errors {
+  color: #cc0000; }
+
 .page_encoding_job_new .form_errors {
   color: #cc0000; }
 
@@ -5021,13 +5032,29 @@ td.visible-print {
       font-size: 64px;
       color: #333; }
 
+.directive_wp_encoding_job_status {
+  width: 75%;
+  padding: 20px;
+  background: #eee;
+  margin: 20px auto;
+  text-align: center; }
+
+.directive_wp_encoding_job_player {
+  border: 1px solid #ccc; }
+
 /* Space out content a bit */
 body {
   padding-top: 20px;
   padding-bottom: 20px; }
 
+h1, h2, h3, h4, h5, p {
+  font-family: 'PT Sans', sans-serif; }
+
 #title {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px; }
   #title img {
     display: block;
     margin: 0 auto; }
