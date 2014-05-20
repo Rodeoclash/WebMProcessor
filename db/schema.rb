@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408105339) do
+ActiveRecord::Schema.define(version: 20140519111240) do
 
   create_table "encoding_jobs", force: true do |t|
-    t.string   "uuid",                                    null: false
+    t.string   "uuid",                                       null: false
     t.string   "video_codec"
     t.integer  "frame_rate"
     t.string   "resolution"
@@ -32,11 +32,12 @@ ActiveRecord::Schema.define(version: 20140408105339) do
     t.string   "x264_preset"
     t.string   "custom"
     t.text     "s3_response"
-    t.boolean  "start_encoding",          default: false
+    t.boolean  "start_encoding",             default: false
     t.string   "queue_job_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "movie"
+    t.string   "notification_email_address"
   end
 
   add_index "encoding_jobs", ["queue_job_id"], name: "index_encoding_jobs_on_queue_job_id", unique: true, using: :btree

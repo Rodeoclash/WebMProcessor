@@ -22,4 +22,13 @@ WebMProcessor::Application.configure do
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => ENV['SMTP_ADDRESS'],
+    :user_name => ENV['SMTP_USER'],
+    :password => ENV['SMTP_PASSWORD'],
+    :authentication => :login,
+    :enable_starttls_auto => true
+  }
+
 end

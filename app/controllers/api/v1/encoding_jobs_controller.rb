@@ -38,7 +38,8 @@ class Api::V1::EncodingJobsController < ApplicationController
 			:duration,
 			:seek_time,
 			:start_encoding,
-			:s3_response
+			:s3_response,
+			:notification_email_address
 		)
 	end
 

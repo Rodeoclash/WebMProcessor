@@ -1,5 +1,9 @@
 <div class="directive directive_wp_form directive_wp_encoding_job_form">
 	<form role="form" name="form">
+
+		<bootstrap:form:group for="notification_email_address" label="Notification email address" help="Encoding can sometimes take a pretty long time... if you want to be notified when the encoding is finished, leave your email address. We will never send you spam, just updates about the job.">
+			<input id="notification_email_address" class="form-control" type="email" ng:model="model.notification_email_address" name="notification_email_address" placeholder="you@example.com">
+		</bootstrap:form:group>
 		
 		<bootstrap:form:group for="frame_rate" label="Framerate" help="This should match the original framerate of the video you're uploading.">
 			<input id="frame_rate" class="form-control" type="number" ng:model="model.frame_rate" name="frame_rate" placeholder="24, 30, 48, 60 etc (min: {{settings.MIN_FRAME_RATE}}, max: {{settings.MAX_FRAME_RATE}})" ng-minlength="{{settings.MIN_FRAME_RATE}}" ng-maxlength="{{settings.MAX_FRAME_RATE}}" required>

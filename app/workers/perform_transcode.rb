@@ -6,6 +6,8 @@ class PerformTranscode
     # hacky, ensure that the item is in the database
     sleep 2
 
+    NotificationMailer.delay(:queue => 'mailer').starting_transcode(encoding_job_id)
+
     encoding_job = EncodingJob.find(encoding_job_id)
 
     encoding_job.firebase_progress.update({
@@ -25,6 +27,8 @@ class PerformTranscode
       ready_for_download: true,
       error_with_transcoding: false
     })
+
+    NotificationMailer.delay(:queue => 'mailer').finished_transcode(encoding_job_id)
 
   end
 
