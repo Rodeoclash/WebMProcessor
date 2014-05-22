@@ -6,7 +6,7 @@
   <body>
     <p>Hey,</p>
     <p>Your transcoding job has just started processing, it should be finished very soon.</p>
-    <p>Why not <a href="<%= encoding_job_show_url(@encoding_job) %>">see how it's going!</a></p>
+    <p>Why not <a href="<%= raw(encoding_job_show_url(@encoding_job)) %>">see how it's going!</a></p>
     <p>You'll get one more email once it's completed.</p>
   </body>
 </html>

@@ -19,7 +19,7 @@ module CarrierwaveProcessers
 					# perform the transcode into the temporary files location
 					movie.transcode(transcoded_file, model.encoding_options) {|progress|
 						model.firebase_progress.update({
-							progress_percentage: progress,
+							progress_percentage: progress.to_i * 100,
 							status: "Transcoding video to WebM",
 							ready_for_download: false,
 							error_with_transcoding: false

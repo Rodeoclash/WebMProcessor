@@ -18,9 +18,9 @@ angular.module('wpEncodingJob')
 			scope.videoHeight = (model) ->
 				EncodingJobsModel.resolution(model)[1]
 
-			scope.videoSrc = (model) ->
-				$sce.trustAsResourceUrl(model.files.movie.transcoded.url)
-
-			scope.videoPoster = (model) ->
-				$sce.trustAsResourceUrl(model.files.movie.screenshot.url)
+			scope.$watch('encodingJob', (v) ->
+				element
+					.find('video')
+					.attr('src', v.files.movie.transcoded.url)
+			, true)
 	)
