@@ -15,7 +15,7 @@
 			</select>
 		</bootstrap:form:group>
 
-		<bootstrap:form:group for="video_bitrate" label="Bitrate" help="This is the target bitrate, higher means better quality but larger file sizes. Try starting at the default value already entered and adjusting it up from that.">
+		<bootstrap:form:group for="video_bitrate" label="Bitrate (in kb/s)" help="This is the target bitrate, higher means better quality but larger file sizes. Try starting at the default value already entered and adjusting it up from that.">
 			<input id="video_bitrate" class="form-control" type="number" ng:model="model.video_bitrate" name="video_bitrate" placeholder="(min: {{settings.MIN_BIT_RATE}}, max: {{settings.MAX_BIT_RATE}})" ng-minlength="{{settings.MIN_BIT_RATE}}" ng-maxlength="{{settings.MAX_BIT_RATE}}" required>
 		</bootstrap:form:group>
 
