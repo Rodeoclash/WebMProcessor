@@ -21,7 +21,10 @@ gem 'foreman'
 gem 'puma'
 gem 'sass'
 gem "aws-ses", "~> 0.5.0", :require => 'aws/ses'
-gem 'rails_12factor'
+
+group :production do
+	gem 'rails_12factor'
+end
 
 group :doc do
   gem 'sdoc', require: false

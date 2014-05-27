@@ -4,21 +4,14 @@ shared: &shared
 
 development:
   <<: *shared
-  username: <%= ENV['DEVELOPMENT_DATABASE_USER'] %>
-  password: <%= ENV['DEVELOPMENT_DATABASE_PASSWORD'] %>
-  database: <%= ENV['DEVELOPMENT_DATABASE_NAME'] %>
-  host: <%= ENV['DEVELOPMENT_DATABASE_HOST'] %>
+  username: root
+  password:
+  database: WebMProcessor_development
+  host: localhost
 
 test:
   <<: *shared
-  username: <%= ENV['TEST_DATABASE_USER'] %>
-  password: <%= ENV['TEST_DATABASE_PASSWORD'] %>
-  database: <%= ENV['TEST_DATABASE_NAME'] %>
-  host: <%= ENV['TEST_DATABASE_HOST'] %>
-
-production:
-  <<: *shared
-  username: <%= ENV['PRODUCTION_DATABASE_USER'] %>
-  password: <%= ENV['PRODUCTION_DATABASE_PASSWORD'] %>
-  database: <%= ENV['PRODUCTION_DATABASE_NAME'] %>
-  host: <%= ENV['PRODUCTION_DATABASE_HOST'] %>
+  username: root
+  password:
+  database: WebMProcessor_test
+  host: localhost
