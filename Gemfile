@@ -3,7 +3,7 @@ ruby '2.0.0'
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.4'
-gem 'mysql'
+gem 'mysql2'
 gem 'default_value_for', '~> 3.0.0'
 gem 'streamio-ffmpeg'
 gem 'carrierwave'
