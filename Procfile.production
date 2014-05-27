@@ -1,3 +1,0 @@
-rails: bundle exec puma -C ./config/puma.rb
-sidekiq: bundle exec sidekiq -C ./config/sidekiq.yml
-nginx: authbind nginx -c /var/www/WebMProcessor/config/nginx.conf
