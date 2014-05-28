@@ -186,6 +186,7 @@ DEPENDENCIES
   carrierwave
   carrierwave_direct!
   default_value_for (~> 3.0.0)
+  dotenv
   firebase
   fog
   foreman
