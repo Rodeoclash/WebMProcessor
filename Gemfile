@@ -22,6 +22,7 @@ gem 'puma'
 gem 'sass'
 gem "aws-ses", "~> 0.5.0", :require => 'aws/ses'
 
+
 group :development do
 	gem 'dotenv'
 end
