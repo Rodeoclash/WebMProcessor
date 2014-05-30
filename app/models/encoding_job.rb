@@ -25,7 +25,7 @@ class EncodingJob < ActiveRecord::Base
 	default_value_for :threads, 1
 	default_value_for :seek_time, 0
 	default_value_for :duration, 10
-	default_value_for :custom, "-an -quality good -qmin 10 -qmax 43 -crf 5"
+	default_value_for :custom, "-an -quality good -cpu-used 0 -crf 10"
 
 	after_initialize :generate_uuid
 	before_save :start_transcode
