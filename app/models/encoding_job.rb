@@ -15,17 +15,17 @@ class EncodingJob < ActiveRecord::Base
 	default_value_for :video_codec, "libvpx"
 	default_value_for :frame_rate, 30
 	default_value_for :resolution, "960x720"
-	default_value_for :video_bitrate, 750
+	default_value_for :video_bitrate, 3000
 	default_value_for :video_bitrate_tolerance, 100
 	default_value_for :audio_codec, "aac"
 	default_value_for :audio_bitrate, 32
 	default_value_for :audio_sample_rate, 22050
 	default_value_for :audio_channels, 1
-	default_value_for :keyframe_interval, 250
+	default_value_for :keyframe_interval, 120
 	default_value_for :threads, 1
 	default_value_for :seek_time, 0
 	default_value_for :duration, 10
-	default_value_for :custom, "-an -deadline good -cpu-used 0 -qmin 10 -qmax 50 -crf 8"
+	default_value_for :custom, "-an -deadline good -cpu-used 0 -qmin 10 -qmax 40 -crf 5"
 
 	after_initialize :generate_uuid
 	before_save :start_transcode
