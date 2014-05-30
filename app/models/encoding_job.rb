@@ -25,28 +25,28 @@ class EncodingJob < ActiveRecord::Base
 	default_value_for :threads, 1
 	default_value_for :seek_time, 0
 	default_value_for :duration, 10
-	default_value_for :custom, "-an -crf 10"
+	default_value_for :custom, "-an -crf 10 --good --cpu-used=0"
 
 	after_initialize :generate_uuid
 	before_save :start_transcode
 
 	def encoding_options
-	{
-		video_codec: "libvpx",
-		frame_rate: frame_rate,
-		resolution: resolution,
-		video_bitrate: video_bitrate,
-		video_bitrate_tolerance: video_bitrate_tolerance,
-		keyframe_interval: keyframe_interval,
-		threads: threads,
-		duration: duration,
-		seek_time: seek_time,
-		custom: custom,
-		audio_codec: "libvorbis",
-		audio_bitrate: 32,
-		audio_sample_rate: 22050,
-		audio_channels: 1
-	}
+		{
+			video_codec: "libvpx",
+			frame_rate: frame_rate,
+			resolution: resolution,
+			video_bitrate: video_bitrate,
+			video_bitrate_tolerance: video_bitrate_tolerance,
+			keyframe_interval: keyframe_interval,
+			threads: threads,
+			duration: duration,
+			seek_time: seek_time,
+			custom: custom,
+			audio_codec: "libvorbis",
+			audio_bitrate: 32,
+			audio_sample_rate: 22050,
+			audio_channels: 1
+		}
 	end
 
 	def screenshot_options
