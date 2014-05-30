@@ -5038,6 +5038,8 @@ td.visible-print {
   background: #eee;
   margin: 20px auto;
   text-align: center; }
+  .directive_wp_encoding_job_status p.status {
+    margin: 0; }
 
 .directive_wp_encoding_job_player {
   border: 1px solid #ccc; }
