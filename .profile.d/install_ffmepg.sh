@@ -1,5 +1,3 @@
-#!bin/bash
-
 # build into this folder
 mkdir ~/src
 
