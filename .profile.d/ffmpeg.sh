@@ -1,7 +1,5 @@
 echo "Building ffmpeg"
 
-
-
 # build into this folder
 mkdir ~/src
 
