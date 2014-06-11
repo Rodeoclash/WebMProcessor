@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Building ffmpeg"
 
 # build into this folder
